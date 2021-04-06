@@ -7,6 +7,7 @@
 * [Byzantine Generals Problem](blockchain-overview/byzantine-generals-problem.md)
 * [The emergence of blockchain](blockchain-overview/blockchain-overview.md)
 * [\(Option\) Bitcoin Whitepaper](blockchain-overview/option-bitcoin-whitepaper.md)
+* [Blockchain vs Bitcoin](blockchain-overview/blockchain-vs-bitcoin.md)
 * [Blockchain Structure](blockchain-overview/blockchain-structure.md)
 * [Blockchain Operations](blockchain-overview/blockchain-operations.md)
 * [Blockchain examples](blockchain-overview/blockchain-examples.md)
