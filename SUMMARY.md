@@ -11,10 +11,12 @@
 * [Blockchain Structure](blockchain-overview/blockchain-structure.md)
 * [Blockchain Operations](blockchain-overview/blockchain-operations.md)
 * [Blockchain examples](blockchain-overview/blockchain-examples.md)
+* [Blockchain Consensus](blockchain-overview/blockchain-consensus.md)
 
 ## Bitcoin
 
 * [Bitcoin](bitcoin/bitcoin-overview.md)
+* [Proof of Work](bitcoin/proof-of-work.md)
 * [Transaction](bitcoin/transaction.md)
 * [Unspent Transaction Output](bitcoin/untitled.md)
 * [Mining](bitcoin/mining.md)
@@ -35,4 +37,5 @@
 * [Hashing](common-algorithms/hashing.md)
 * [Cryptography](common-algorithms/cryptography.md)
 * [Asymmetric Cryptography](common-algorithms/asymmetric-cryptography.md)
+* [Consensus Algorithm](common-algorithms/consensus-algorithm.md)
 
