@@ -17,5 +17,7 @@ Here are just a few examples of the wider applications of blockchain beyond Bitc
 * **Auditing the supply chain.** Blockchain allows users to trace the records of ownership for goods all the way back to the source. As an example of this, Diamond company De Beers has started to use blockchain to trace diamonds from the mine to the end customer. Anyone who wants to verify that their diamonds are free from conflict will have a transparent and complete record.
 * **Providing proof of insurance.** Nationwide insurance company is planning to use blockchain to provide proof-of-insurance information. The tool would help police officers, insurers and customers verify insurance coverage instantly, which should help to speed up the claims process.
 
-참고문헌: [https://www.bernardmarr.com/default.asp?contentID=1849](https://www.bernardmarr.com/default.asp?contentID=1849)
+참고문헌:   
+[https://bernardmarr.com/default.asp?contentID=1302](https://bernardmarr.com/default.asp?contentID=1302)  
+[https://www.bernardmarr.com/default.asp?contentID=1849](https://www.bernardmarr.com/default.asp?contentID=1849)
 
