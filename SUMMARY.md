@@ -31,6 +31,7 @@
 * [Ethereum Virtual Machine \(EVM\)](ethereum/ethereum-virtual-machine-evm.md)
 * [Accounts](ethereum/accounts.md)
 * [Gas](ethereum/gas.md)
+* [Proof of Stake](ethereum/proof-of-stake.md)
 
 ## Common Algorithms
 

@@ -1,3 +1,7 @@
+---
+description: 블록체인의 컨센서스 알고리즘 개요
+---
+
 # Blockchain Consensus
 
 ## 컨센서스 알고리즘 
@@ -12,11 +16,13 @@
 
 
 
-## 컨센서스 알고리즘의 종
+## 컨센서스 알고리즘의 종류 
 
 컨센서스 알고리즘은 블록체인 기술의 근간이 되는 만큼 여전히 개발되고 발전하고 있다. 그 중에 잘 알려진 컨센서스는 3가지를 소개한다.
 
 ### Proof of Work \(PoW\)
+
+비트코인 백서에 서술되어 있는 가장 기본적인 컨센서스 알고리즘이다. Proof of Work는 한글로 작업 증명이라고 부른다. 이름에서 유추해볼 수 있듯이 작업 증명은 '어떠한 일을 함으로써 원본임을 증명' 하는 알고리즘이다. 비트코인과 여러 코인에서 사용되고 있으며, 이더리움도 현재는 PoW를 사용한다. 더 자세한 내용은 Bitcoin 섹션에서 소개한다.
 
 {% page-ref page="../bitcoin/proof-of-work.md" %}
 
@@ -24,11 +30,15 @@
 
 ### Proof of Stake \(PoS\)
 
+Proof of Stake는 PoW의 단점들을 지적하면서 등장했다. 이더리움 커뮤니티에서 개발 중이며, 추후\(Eth2\)에 도입될 수 있다.
+
+{% page-ref page="../ethereum/proof-of-stake.md" %}
+
 
 
 ### Delegated Proof of Stake \(DPoS\)
 
-
+작성중... 
 
 
 
