@@ -30,5 +30,5 @@ description: 블록체인(비트코인)의 등장
 
 
 
-Date: 04/06/0201
+Last update: 04/06/0201
 

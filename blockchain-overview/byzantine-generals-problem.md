@@ -63,5 +63,5 @@ description: What is Byzantine Generals Problem?
 
 
 
-Date: 04/06/0201
+Last update: 04/07/0201
 
