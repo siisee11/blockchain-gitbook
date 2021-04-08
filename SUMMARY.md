@@ -35,7 +35,7 @@
 
 ## Common Algorithms
 
-* [Hashing](common-algorithms/hashing.md)
+* [Hash](common-algorithms/hashing.md)
 * [Cryptography](common-algorithms/cryptography.md)
 * [Asymmetric Cryptography](common-algorithms/asymmetric-cryptography.md)
 * [Consensus Algorithm](common-algorithms/consensus-algorithm.md)

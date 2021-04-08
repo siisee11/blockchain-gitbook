@@ -42,6 +42,10 @@ Timestamp Server가 "데이터가 특정 시간에 쓰여 졌음을 서명한다
 
 ![Chain of blocks](../.gitbook/assets/image%20%284%29.png)
 
+해시에 관련된 자세한 내용은 아래 페이지에서 확인하자.
+
+{% page-ref page="../common-algorithms/hashing.md" %}
+
 ### Distributed Timestamp Server
 
 하지만 Timestamp 서버를 사용하여 인증하는 방식은 아직 중앙 시스템이 관여한다. 공신력 있는 신문사가 날짜와 시간을 적어서 뿌리는 것이 아닌 peer-to-peer 방식으로 동작하는 분산 Timestamp 서버가 필요하다. 비트코인은 Proof-of-Work를 이용하여 분산 Timestamp 서버를 구현하였다. Proof-of-Work는 엄청 요약하면 어려운 문제의 답을 구하는 것이고 다음 문제는 답이 구해진 후에 출제된다. 문제의 답을 찾으면 블록을 만들고 데이터를 저장하여 퍼트리고 다른 참여자들은 답을 대입해서 유효성을 판별한다. 문제가 어렵기 때문에 답을 찾아서 새롭게 생성되는 블록에 순서가 생기고 문제 출제를 이전 블록의 해시값을 이용해서 하기 때문에 Timestamp server와 마찬가지로 블록들의 순서가 보장된다.
