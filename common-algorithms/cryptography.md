@@ -23,7 +23,7 @@ _단어 자체로 학문인데, 한 페이지에 담을 수 있을 리 없다. \
 * Asymmetric Key Cryptography / Public Key Cryptography \(공개키 암호 시스템\)
 * Digital Sign \(전자서명\)
 
-하나 하나 알아보자.
+하나하나 알아보자.
 
 ## Symmetric Key Cryptography \(대칭키 암호 시스템\)
 
@@ -33,5 +33,5 @@ _단어 자체로 학문인데, 한 페이지에 담을 수 있을 리 없다. \
 
 
 
-Date: 04/08/0201
+Last update: 04/08/0201
 
