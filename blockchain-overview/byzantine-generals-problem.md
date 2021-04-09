@@ -61,6 +61,9 @@ description: What is Byzantine Generals Problem?
 
 
 
+참고:  
+[http://www.distributedsystemscourse.com/](http://www.distributedsystemscourse.com/)
+
 
 
 Last update: 04/07/0201

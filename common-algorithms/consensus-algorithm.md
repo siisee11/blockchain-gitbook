@@ -29,5 +29,5 @@
 참고:   
 [https://ethereum.org/en/developers/docs/consensus-mechanisms/](https://ethereum.org/en/developers/docs/consensus-mechanisms/)  
   
-Date: 04/07/2021
+Last update: 04/07/2021
 

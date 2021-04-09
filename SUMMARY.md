@@ -37,7 +37,6 @@
 
 * [Hash](common-algorithms/hashing.md)
 * [Cryptography](common-algorithms/cryptography.md)
-* [Asymmetric Cryptography](common-algorithms/asymmetric-cryptography.md)
 * [Consensus Algorithm](common-algorithms/consensus-algorithm.md)
 * [Distributed Ledger](common-algorithms/distributed-ledger.md)
 

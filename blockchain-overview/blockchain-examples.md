@@ -4,7 +4,7 @@ description: 블록체인의 예시들
 
 # Blockchain examples
 
-
+블록체인 기술을 어느 분야에 응용 수 있을까?
 
 **Looking at the wider applications of blockchain**
 
