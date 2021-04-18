@@ -26,6 +26,7 @@
 ## Ethereum
 
 * [Ethereum](ethereum/ethereum.md)
+* [Web2 vs Web3](ethereum/web2-vs-web3.md)
 * [\(Option\) Ethereum Whitepaper](ethereum/option-ethereum-whitepaper.md)
 * [Smart Contract](ethereum/smart-contract.md)
 * [Solidity](ethereum/solidity.md)
