@@ -33,6 +33,7 @@
 * [Accounts](ethereum/accounts.md)
 * [Gas](ethereum/gas.md)
 * [Proof of Stake](ethereum/proof-of-stake.md)
+* [\(Exercise\) Cryptozombies](ethereum/exercise-cryptozombies.md)
 
 ## Common Algorithms
 
