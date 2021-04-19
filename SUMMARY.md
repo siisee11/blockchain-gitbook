@@ -43,6 +43,7 @@
 ## Uniswap
 
 * [DEX](uniswap/dex.md)
+* [Uniswap](uniswap/uniswap.md)
 
 ## Common Algorithms
 

@@ -76,5 +76,9 @@ description: 탈중앙 거래소 (DEX)
 
 
 
+참고: [https://academy.binance.com/ko/articles/what-is-a-decentralized-exchange-dex\#how-a-decentralized-exchange-works](https://academy.binance.com/ko/articles/what-is-a-decentralized-exchange-dex#how-a-decentralized-exchange-works)
 
+
+
+Last update: 04/19/2021
 
