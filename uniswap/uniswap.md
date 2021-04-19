@@ -56,3 +56,5 @@ Uniswap은 유동성 공급자에게 0.3%의 수수료를 제공한다. 만약 �
 [https://academy.binance.com/ko/articles/what-is-uniswap-and-how-does-it-work](https://academy.binance.com/ko/articles/what-is-uniswap-and-how-does-it-work)  
 [https://blog.chain.link/tag/education/](https://blog.chain.link/tag/education/)
 
+Last update: 04/20/2021
+
