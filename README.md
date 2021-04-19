@@ -12,7 +12,13 @@ Gitbook이 한글지원이 잘 안돼서 문장의 마지막 글자가 지워지
 
 ### 참고문헌
 
-[http://www.distributedsystemscourse.com/](http://www.distributedsystemscourse.com/)
+{% embed url="http://www.distributedsystemscourse.com/" %}
+
+{% embed url="https://academy.binance.com/en" %}
+
+{% embed url="https://ethereum.org/en/" %}
+
+
 
 ### 작성자 
 

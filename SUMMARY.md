@@ -34,7 +34,15 @@
 * [Accounts](ethereum/accounts.md)
 * [Gas](ethereum/gas.md)
 * [Proof of Stake](ethereum/proof-of-stake.md)
-* [\(Exercise\) Cryptozombies](ethereum/exercise-cryptozombies.md)
+
+## Ethereum Tutorials
+
+* [\(Exercise\) Cryptozombies](ethereum-tutorials/exercise-cryptozombies.md)
+* [Untitled](ethereum-tutorials/untitled.md)
+
+## DEX
+
+* [DEX](dex/dex.md)
 
 ## Common Algorithms
 
@@ -42,8 +50,4 @@
 * [Cryptography](common-algorithms/cryptography.md)
 * [Consensus Algorithm](common-algorithms/consensus-algorithm.md)
 * [Distributed Ledger](common-algorithms/distributed-ledger.md)
-
-## Ethereum Tutorials
-
-* [Untitled](ethereum-tutorials/untitled.md)
 
