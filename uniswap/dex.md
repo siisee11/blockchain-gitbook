@@ -24,13 +24,13 @@ description: 탈중앙 거래소 (DEX)
 
 아래 그림은 중앙 거래소로의 입금과정을 나타낸다. 개괄적인 내용이여서 세부 사항은 다를 수 있다. Wallet A의 1ETH가 거래소 지갑\(Wallet E\) 로 이동했음이 블록체인에 기록되고 거래소 데이터베이스에 A가 1 ETH를 가지고 있음이 기록된다.
 
-![](../.gitbook/assets/image%20%2828%29.png)
+![](../.gitbook/assets/image%20%2830%29.png)
 
 
 
 아래 그림은 중앙 거래소에서 trading 과정을 나타낸 것이다. 실제 이더리움은 거래소 지갑\(Wallet E\)에 그래도 존재한다.
 
-![](../.gitbook/assets/image%20%2827%29.png)
+![](../.gitbook/assets/image%20%2829%29.png)
 
 위처럼 중앙 거래소가 있으면 실제 trading은 거래소 내부 데이터베이스에서만 진행되기 때문에 속도가 빠르고 수수료도 싸다.
 
