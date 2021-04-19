@@ -6,6 +6,8 @@ description: 탈중앙 거래소 (DEX)
 
 암호화폐 혹은 가상화폐는 이름에서도 말해주듯이 거래를 위한 자산이다. 당연하게도 암호화폐를 거래할 수 있도록 구매자와 판매자를 이어주는 거래소가 암호화폐에서 중요한 역할을 해왔다.
 
+유니스왑은 기존의 중앙 기관이 중재하는 거래소가 아닌 탈중앙 거래소이다. 먼저 거래소의 종류와 특징을 알아보자.
+
 ## 중앙 거래소
 
 대부분의 사람들이 알고 있는\(사용하는\) 거래소는 중앙 거래소이다. 한국 기준으로는 업비트, 코인원, 빗썸등의 거래소가 있다. 얼마전 \(4/14/2021\) 나스닥에 직상장한 [코인베이스\(티커: COIN\)](https://finance.yahoo.com/quote/COIN/?guccounter=1&guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&guce_referrer_sig=AQAAAL9HI3KeA-ZQOEYaYyxJ8HRRrs3OUoZFDEOtXP9zbOV_Q3mqjwMTen5NTRPoi1hFXfVHLiTo0-Ni5NzrzOhIGjyL412IdWhvekDPCuI7bMbnzG9uswuHoy4nOgXWXk_hHOn_QDDA57ovRLfKR7uNmMSo-NOi4nUyfmYkamfY9o3A)도 역시 중앙 거래소이다. 

@@ -40,9 +40,9 @@
 * [\(Exercise\) Cryptozombies](ethereum-tutorials/exercise-cryptozombies.md)
 * [Untitled](ethereum-tutorials/untitled.md)
 
-## DEX
+## Uniswap
 
-* [DEX](dex/dex.md)
+* [DEX](uniswap/dex.md)
 
 ## Common Algorithms
 
