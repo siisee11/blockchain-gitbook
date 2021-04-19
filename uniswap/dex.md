@@ -24,7 +24,7 @@ description: 탈중앙 거래소 (DEX)
 
 아래 그림은 중앙 거래소로의 입금과정을 나타낸다. 개괄적인 내용이여서 세부 사항은 다를 수 있다. Wallet A의 1ETH가 거래소 지갑\(Wallet E\) 로 이동했음이 블록체인에 기록되고 거래소 데이터베이스에 A가 1 ETH를 가지고 있음이 기록된다.
 
-![](../.gitbook/assets/image%20%2830%29.png)
+![](../.gitbook/assets/image%20%2831%29.png)
 
 
 

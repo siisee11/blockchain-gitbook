@@ -44,6 +44,7 @@
 
 * [DEX](uniswap/dex.md)
 * [Uniswap](uniswap/uniswap.md)
+* [Impermanent Loss](uniswap/impermanent-loss.md)
 
 ## Common Algorithms
 
