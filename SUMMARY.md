@@ -40,11 +40,16 @@
 * [\(Exercise\) Cryptozombies](ethereum-tutorials/exercise-cryptozombies.md)
 * [Untitled](ethereum-tutorials/untitled.md)
 
-## DEX
+## DeFi
 
-* [DEX](dex/dex.md)
-* [Uniswap](dex/uniswap.md)
-* [Impermanent Loss](dex/impermanent-loss.md)
+* [DeFi](defi/defi.md)
+* [DEX](defi/dex.md)
+* [Uniswap](defi/uniswap.md)
+* [Impermanent Loss](defi/impermanent-loss.md)
+
+## NFT
+
+* [NFT](nft/nft.md)
 
 ## Common Algorithms
 
