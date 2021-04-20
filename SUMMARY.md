@@ -6,7 +6,6 @@
 
 * [Byzantine Generals Problem](blockchain-overview/byzantine-generals-problem.md)
 * [The emergence of blockchain](blockchain-overview/blockchain-overview.md)
-* [\(Option\) Bitcoin Whitepaper](blockchain-overview/option-bitcoin-whitepaper.md)
 * [Blockchain vs Bitcoin](blockchain-overview/blockchain-vs-bitcoin.md)
 * [Blockchain Structure](blockchain-overview/blockchain-structure.md)
 * [Blockchain Operations](blockchain-overview/blockchain-operations.md)
@@ -16,6 +15,7 @@
 ## Bitcoin
 
 * [Bitcoin](bitcoin/bitcoin-overview.md)
+* [\(Option\) Bitcoin Whitepaper](bitcoin/option-bitcoin-whitepaper.md)
 * [Proof of Work](bitcoin/proof-of-work.md)
 * [Transaction](bitcoin/transaction.md)
 * [Unspent Transaction Output](bitcoin/untitled.md)
@@ -40,11 +40,11 @@
 * [\(Exercise\) Cryptozombies](ethereum-tutorials/exercise-cryptozombies.md)
 * [Untitled](ethereum-tutorials/untitled.md)
 
-## Uniswap
+## DEX
 
-* [DEX](uniswap/dex.md)
-* [Uniswap](uniswap/uniswap.md)
-* [Impermanent Loss](uniswap/impermanent-loss.md)
+* [DEX](dex/dex.md)
+* [Uniswap](dex/uniswap.md)
+* [Impermanent Loss](dex/impermanent-loss.md)
 
 ## Common Algorithms
 

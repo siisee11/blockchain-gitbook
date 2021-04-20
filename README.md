@@ -10,6 +10,15 @@ description: This book "will" contain concepts of blockchain and practical code 
 
 Gitbook이 한글지원이 잘 안돼서 문장의 마지막 글자가 지워지는 버그가 있으니 양해 부탁드립니다. 
 
+### 문서 업데이트 계획
+
+* [ ] 블록체인의 개요
+* [ ] 비트코인과 세부 내용
+* [ ] 이더리움의 이론
+* [ ] 이더리움 실습
+* [ ] 탈중앙 거래소 \(DEX\)
+* [ ] 기타 배경 지식
+* [ ] 
 ### 참고문헌
 
 {% embed url="http://www.distributedsystemscourse.com/" %}
