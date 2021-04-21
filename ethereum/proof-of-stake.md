@@ -2,7 +2,7 @@
 description: Eth2의 컨센서스 알고리즘
 ---
 
-# Proof of Stake
+# \(ETH2\) Proof of Stake
 
 ## What is Proof-of-Stake \(PoS\)
 
