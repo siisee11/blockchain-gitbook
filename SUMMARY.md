@@ -34,6 +34,7 @@
 * [Accounts](ethereum/accounts.md)
 * [Gas](ethereum/gas.md)
 * [Proof of Stake](ethereum/proof-of-stake.md)
+* [\(ETH2\) Shard Chain](ethereum/eth2-shard-chain.md)
 
 ## Ethereum Tutorials
 
