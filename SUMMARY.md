@@ -38,8 +38,8 @@
 
 ## Ethereum Tutorials
 
-* [\(Exercise\) Cryptozombies](ethereum-tutorials/exercise-cryptozombies.md)
-* [Untitled](ethereum-tutorials/untitled.md)
+* [CryptoZombies](ethereum-tutorials/exercise-cryptozombies.md)
+* [Build DeFi App](ethereum-tutorials/untitled.md)
 
 ## DeFi
 
