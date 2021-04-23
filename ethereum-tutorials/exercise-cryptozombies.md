@@ -30,6 +30,8 @@ Solidity를 처음 접하기에 최고의 튜토리얼인 것 같다. Solidity�
 
 또한 solidity 코드를 테스트해보는 방법도 advance 강의에서 배울 수 있다.
 
+CryptoZombie는 ERC-721 규율을 따르는 토큰을 다루는데 이는 NFT에 사용되는 토큰이다.
+
 
 
 Last update: 2021/04/15

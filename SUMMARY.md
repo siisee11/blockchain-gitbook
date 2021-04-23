@@ -41,6 +41,10 @@
 * [CryptoZombies](ethereum-tutorials/exercise-cryptozombies.md)
 * [Build DeFi App](ethereum-tutorials/untitled.md)
 
+## Binance
+
+* [Binance](binance/binance.md)
+
 ## DeFi
 
 * [DeFi](defi/defi.md)
@@ -51,6 +55,8 @@
 ## NFT
 
 * [NFT](nft/nft.md)
+* [NFT Marketplace](nft/nft-marketplace.md)
+* [NFT Virtual World](nft/nft-virtual-world.md)
 
 ## Common Algorithms
 
