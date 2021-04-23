@@ -22,7 +22,7 @@ Binance는 세계 최대 규모의 암호화폐 거래소이다. Coinbase가 뒤
 
 우리나라 신용카드는 안된다.
 
-## Binance Smart Chain
+## Binance Smart Chain \(BSC\)
 
 이제 블록체인 생태계에서 중요한 바이낸스 스마트 체인에 대하여 알아보자.
 
@@ -32,7 +32,15 @@ Binance는 세계 최대 규모의 암호화폐 거래소이다. Coinbase가 뒤
 
 ### Binance smart chain
 
-### 
+바이낸스 스마트 체인은 바이낸스 체인과 병렬로 실행되는 블록체인이다. 바이낸스 체인과 다르게 스마트 컨트랙트와 EVM과의 호환성을 지원한다. 바이낸스 체인의 높은 처리량을 유지하면서 스마트 컨트랙트 기능을 생태계에 끌어들였다.
+
+바이낸스 스마트 체인은 EVM과 호환되므로 이더리움 네트워크의 dapp들을 거의 이주 오버해드 없이 가져올 수 있다. 메타마스크와 같은 어플리케이션도 쉽게 바이낸스 스마트 체인에서 작동하도록 설정할 수 있다.
+
+## How Binance Smart Chain works?
+
+### Consensus Alogrithm
+
+바이낸스 스마트 체인은 합의 알고리즘으로 Proof of Staked Authority \(PoSA\)를 사용한다. 
 
 ### 
 
