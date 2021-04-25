@@ -323,7 +323,7 @@ Summary
 
 ## Decentralized Bank\(DeBank\) Contract
 
-### Step \#5 DeBank Contract 작
+### Step \#5 DeBank Contract 작성 
 
 이제 예금, 출금, 대출, 상환 등의 기능을 가진 DeBank contract에 대해 코드를 작성할 것이다. 우선 컨트랙트의 기본 뼈대부터 입력한다. 
 
