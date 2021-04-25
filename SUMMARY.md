@@ -40,7 +40,7 @@
 
 * [CryptoZombies](ethereum-tutorials/exercise-cryptozombies.md)
 * [Build DeFi App](ethereum-tutorials/untitled.md)
-* [Decentralized Bank](ethereum-tutorials/decentralized-bank.md)
+* [Build Decentralized Bank](ethereum-tutorials/decentralized-bank.md)
 
 ## Ethereum Development Tools
 

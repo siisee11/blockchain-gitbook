@@ -1,8 +1,8 @@
 ---
-description: 탈중앙화된 은행 시스템
+description: 탈중앙화된 은행 시스템 만들기
 ---
 
-# Decentralized Bank
+# Build Decentralized Bank
 
 ## Decentralized Bank System
 
