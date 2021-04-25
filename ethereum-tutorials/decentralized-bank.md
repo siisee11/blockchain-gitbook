@@ -12,11 +12,15 @@ description: 탈중앙화된 은행 시스템 만들기
 이 문서는 solidity와 React 문법에 대해 알고 있다는 가정으로 작성되었습니다. 몰라도 따라할 수 는 있습니다.
 {% endhint %}
 
+### 평점 ⭐⭐⭐⭐⭐
+
+### 난이도 Beginner - 2
+
 ### 구현 할 것
 
-* [ ] Solidity언어로 smart contract \(보상 토큰, 은행 업무\) 구현
-* [ ] Javascript + Chai로 contract test 구현
-* [ ] React로 프론트엔드 구현
+* [x] Solidity언어로 smart contract \(보상 토큰, 은행 업무\) 구현
+* [x] Javascript + Chai로 contract test 구현
+* [x] React로 프론트엔드 구현
 
 ### 준비
 
