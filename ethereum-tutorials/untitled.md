@@ -27,7 +27,7 @@ CrytoZombies에서 배운 Solidity 지식과 약간의 React에 대한 지식이
 ### 배울 수 있는 것 
 
 * Solidity와 testing
-* React와 web3.js로 프론트엔드 구
+* React와 web3.js로 프론트엔드 구현 
 
 
 

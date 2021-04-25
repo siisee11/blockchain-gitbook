@@ -52,7 +52,7 @@ NFT는 비교적 최신 기술이지만, 그 활용도가 매우 높기 때문�
 
 #### The SANDBOX
 
-Decentraland와 같은 블록체인 기반의 메타버스 게임이다. 토큰으로 SAND를 사용한다.
+Decentraland와 같은 블록체인 기반의 메타버스 게임이다. 자체 토큰으로 SAND를 사용한다.
 
 ### NFT marketplaces
 
@@ -60,27 +60,11 @@ Decentraland와 같은 블록체인 기반의 메타버스 게임이다. 토큰�
 
 Opensea는 NFT 마켓플레이스이다. 디지털 아트, 가상세계의 부동산이나 자산들, 디지털 수집품 등을 판매하고 있다.
 
-![](../.gitbook/assets/image%20%2838%29.png)
-
-
-
-### Cryptovoxels
-
-Ethereum blockchain위에 존재하는 가상세계. 유저들은 땅을 사고, 가게나 미술 전시장을 지을 수도 있다. 
-
-![](../.gitbook/assets/image%20%2842%29.png)
+![Opensea](../.gitbook/assets/image%20%2838%29.png)
 
 
 
 
 
-
-
-
-
-
-
-
-
-
+Last update: 2021/04/25
 
