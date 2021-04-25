@@ -10,7 +10,7 @@ description: 세상은 내가 모르는 곳에서도 발전하고 있다.
 
 
 
-![cryptovoxel&#xC758; &#xAC15;&#xB0A8;&#xAC70;&#xB9AC;](../.gitbook/assets/image%20%2840%29.png)
+![cryptovoxel&#xC758; &#xAC15;&#xB0A8;&#xAC70;&#xB9AC;](../.gitbook/assets/image%20%2836%29%20%281%29.png)
 
 
 
