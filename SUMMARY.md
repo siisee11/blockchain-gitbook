@@ -71,3 +71,9 @@
 * [Consensus Algorithm](common-algorithms/consensus-algorithm.md)
 * [Distributed Ledger](common-algorithms/distributed-ledger.md)
 
+## Create own coin with golang
+
+* [My own Coin](create-own-coin-with-golang/my-own-coin.md)
+* [\#1 Blocks and Chain](create-own-coin-with-golang/1-blocks-and-chain.md)
+* [\#2 Proof-of-Work](create-own-coin-with-golang/2-proof-of-work.md)
+
