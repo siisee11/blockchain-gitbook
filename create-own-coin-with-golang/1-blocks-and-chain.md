@@ -6,6 +6,8 @@ description: 가장 기초가 되는 block과 blockchain 만들기
 
 본 튜토리얼은 [https://github.com/tensor-programming/golang-blockchain](https://github.com/tensor-programming/golang-blockchain) 레파지토리를 100% 참고하여 만들었습니다. 
 
+한글로 주석을 단 코드는  [https://github.com/siisee11/golang-blockchain](https://github.com/siisee11/golang-blockchain) 의 step1 브랜치에 있습니다 . 
+
 {% hint style="danger" %}
 Go languague를 기본적으로 익혔다는 가정하에 시작되는 튜토리얼 입니다. 이전 문서인 Golang에서 언급한 튜토리얼들을 먼저 공부하길 바랍니다.
 {% endhint %}
@@ -135,33 +137,45 @@ import (
 )
 
 type BlockChain struct {
+	// BlockChain은 Block포인터 슬라이스를 가진다.
 	Blocks []*Block
 }
 
+// Block의 구조
 type Block struct {
-	Hash     []byte
-	Data     []byte
-	PrevHash []byte
+	Hash     []byte // 현재 블록의 해시
+	Data     []byte // 블록에 기록된 data
+	PrevHash []byte // 이전 블록의 해시
 }
 
 func (b *Block) DeriveHash() {
+	// block의 데이터와 이전 해시를 concatenate한다.
 	info := bytes.Join([][]byte{b.Data, b.PrevHash}, []byte{})
+	// concatenate한 값을 해시함수에 넣어서 새로운 해시값을 얻어낸다.
 	hash := sha256.Sum256(info)
+	// 결과값을 블록에 저장.
 	b.Hash = hash[:]
 }
 
+// Block을 생성하는 함수
+// data와 이전 해시값을 인자로 받는다.
 func CreateBlock(data string, prevHash []byte) *Block {
+	// data와 이전 해시값으로 block을 만들고
 	block := &Block{[]byte{}, []byte(data), prevHash}
+	// 이번 블록의 해시값을 찾아낸다.
 	block.DeriveHash()
 	return block
 }
 
+// 새로운 블록을 만들어서 블록체인에 연결하는 함수
 func (chain *BlockChain) AddBlock(data string) {
 	prevBlock := chain.Blocks[len(chain.Blocks)-1]
 	new := CreateBlock(data, prevBlock.Hash)
 	chain.Blocks = append(chain.Blocks, new)
 }
 
+// Chain의 첫 블록을 Genesis Block이라고 한다.
+// Genesis Block은 이전 해시가 없으므로 예외처리한다.
 func Genesis() *Block {
 	return CreateBlock("Genesis", []byte{})
 }
@@ -184,19 +198,27 @@ import (
 )
 
 func main() {
+	// Blockchain을 초기화 한다. 이는 Genesis block을 만드는 작업을 포함한다.
 	chain := blockchain.InitBlockChain()
 
+	// 예시로 3개의 블록을 추가한다.
 	chain.AddBlock("First Block after Genesis")
 	chain.AddBlock("second Block after Genesis")
 	chain.AddBlock("Third Block after Genesis")
 
+	// Block을 iterate하며 출력한다.
 	for _, block := range chain.Blocks {
 		fmt.Printf("Previous Hash: %x\n", block.PrevHash)
 		fmt.Printf("Data in Block: %s\n", block.Data)
 		fmt.Printf("Hash: %x\n", block.Hash)
 	}
 }
+
 ```
+
+Source 코드는 [https://github.com/siisee11/golang-blockchain](https://github.com/siisee11/golang-blockchain) 의 step1 브랜치에 있습니다.
+
+
 
 Last update: 04/26/2021
 
