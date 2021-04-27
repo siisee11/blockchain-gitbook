@@ -736,9 +736,5 @@ go run main.go getbalance -address "Bob"
 
 
 
-
-
-
-
 Last update: 2021/04/28
 
