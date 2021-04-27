@@ -242,7 +242,13 @@ Hash: 0008a5c131ccd53c60db5797f3513556b6f2ce22df2a07482e0120f3dc2a5953
 PoW: true
 ```
 
- Difficulty를 바꿔서 추가로 돌려보길 바란다.
+ Difficulty를 18로 바꿔서 돌려보자.
+
+블록 추가는 어려운데, 검증은 쉬운것을 바로 체감할 수 있다.
+
+
+
+
 
 Source 코드는  [https://github.com/siisee11/golang-blockchain](https://github.com/siisee11/golang-blockchain) 의 step2 브랜치에 있습니다 . 
 
