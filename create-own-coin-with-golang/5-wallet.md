@@ -4,7 +4,7 @@ description: 비트코인의 주인이될 wallet을 만들어봅시다.
 
 # \#5 Wallet
 
-Wallet에 대한 코드를 작성하기전에 Wallet에 대한 문서를 읽고 오시는 것을 추천드립니다.
+Wallet에 대한 코드를 작성하기전에 [Wallet](../bitcoin/wallet.md)에 대한 문서를 읽고 오시는 것을 추천드립니다.
 
 Wallet은 거래를 위해 사용하는 address와 보안을 위해 Public/Private Key쌍으로 이루어져있습니다. 이를 구현해 보도록하겠습니다.
 
