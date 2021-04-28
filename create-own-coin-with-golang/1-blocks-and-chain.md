@@ -216,7 +216,11 @@ func main() {
 
 ```
 
-Source 코드는 [https://github.com/siisee11/golang-blockchain](https://github.com/siisee11/golang-blockchain) 의 step1 브랜치에 있습니다.
+
+
+{% hint style="success" %}
+코드는  [https://github.com/siisee11/golang-blockchain](https://github.com/siisee11/golang-blockchain) 의 step1 브랜치에 있습니다 . 
+{% endhint %}
 
 
 

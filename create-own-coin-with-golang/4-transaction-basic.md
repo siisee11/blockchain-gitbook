@@ -1,10 +1,10 @@
 ---
-description: Transaction. 구현 1편
+description: 기초적인 Transaction
 ---
 
 # \#4 Transaction Basic
 
-비트코인의 가장 중요한 기능 Transaction을 구현할 것 입니다. Transaction은 복잡하기 때문에 여러 섹션으로 나누어 진행합니다.
+비트코인의 가장 중요한 기능 Transaction을 구현할 것 입니다. 이 파트에서 구현하는 트랜잭션은 완벽한 트랜잭션은 아니고 기본 동작을 구현한 것입니다. 나머지 파트를 진행하면서 점차 완성되어 갈 것입니다.
 
 ##  blockchain/transaction.go
 
@@ -731,6 +731,10 @@ go run main.go getbalance -address "Bob"
 ![Bob&apos;s balance](../.gitbook/assets/image%20%2840%29.png)
 
 
+
+{% hint style="success" %}
+코드는  [https://github.com/siisee11/golang-blockchain](https://github.com/siisee11/golang-blockchain) 의 step4 브랜치에 있습니다 . 
+{% endhint %}
 
 
 

@@ -49,6 +49,7 @@
 * [\#2 Proof-of-Work](create-own-coin-with-golang/2-proof-of-work.md)
 * [\#3 Save blockchain persistently](create-own-coin-with-golang/3-save-blockchain-persistently.md)
 * [\#4 Transaction Basic](create-own-coin-with-golang/4-transaction-basic.md)
+* [\#5 Wallet](create-own-coin-with-golang/5-wallet.md)
 
 ## Ethereum Development Tools
 
