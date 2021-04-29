@@ -53,7 +53,13 @@ $$
 
 대칭키 암호 시스템의 관리 문제점을 해결하기 위해 도입된 방식이 공개키 암호 시스템이다.
 
-## Asymmetric \(Public\) Key Cryptography \(공개키 암호 시스템\)
+## Asymmetric\(Public\) Key Cryptography \(공개키 암호 시스템\)
+
+
+
+### Elliptic curve cryptography
+
+Bitcoin에서 private/public key 쌍을 만들 때 사용하는 방법이다.
 
 
 
