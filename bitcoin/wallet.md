@@ -20,7 +20,7 @@ Key는 private key, public key 쌍으로 이루어져있다. Public key를 자�
 
 아래 그림은 비트코인에서 쓰이는 Key와 주소의 관계를 나타낸 그림이다. 결국 private키가 정해지면 public key와 bitcoin address는 그로부터 계산되어 정적으로 정해진다.
 
-
+![relation](../.gitbook/assets/image%20%2867%29.png)
 
 ### Private Key 
 
@@ -86,15 +86,22 @@ $$
 
 아래는 public key를 bitcoin address로 변환하는 전체 과정에 대한 그림이다.
 
-![Public key to bitcoin address: conversion of a public key into a bitcoin address](../.gitbook/assets/image%20%2865%29.png)
+![Public key to bitcoin address: conversion of a public key into a bitcoin address](../.gitbook/assets/image%20%2866%29.png)
 
-아래는 Public Key Hash를 Bitcoin address로 변환하는 과정을 자세하게 표현한 그림이다. Version이 Public Key Hash에 Prefix로 붙고 이를 인풋으로 SHA256 해시를 두번하여  
+아래는 Public Key Hash를 Bitcoin address로 변환하는 과정을 자세하게 표현한 그림이다. Version이 Public Key Hash에 Prefix로 붙고 이를 인풋으로 SHA256 해시를 두번한 해시값의 앞 4byte를 Postfix로 붙는다. 이 값을 Base 58 Encoding하면 최종적으로 Bitcoin address를 얻을 수 있다.
+
+![Base58Check encoding: a Base58, versioned, and checksummed format for unambiguously encoding bitcoin data](../.gitbook/assets/image%20%2865%29.png)
+
+### 실습
+
+이 내용은 [wallet](../create-own-coin-with-golang/5-wallet.md) 실습에서 다루고 있습니다.
 
 
 
 
 
-
+참고:  
+[https://www.oreilly.com/library/view/mastering-bitcoin-2nd/9781491954379/ch04.html](https://www.oreilly.com/library/view/mastering-bitcoin-2nd/9781491954379/ch04.html)
 
 
 
