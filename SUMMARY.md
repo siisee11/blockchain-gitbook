@@ -50,6 +50,7 @@
 * [\#3 Save blockchain persistently](create-own-coin-with-golang/3-save-blockchain-persistently.md)
 * [\#4 Transaction Basic](create-own-coin-with-golang/4-transaction-basic.md)
 * [\#5 Wallet](create-own-coin-with-golang/5-wallet.md)
+* [\#6 Transaction Advanced](create-own-coin-with-golang/6-transaction-advanced.md)
 
 ## Ethereum Development Tools
 
