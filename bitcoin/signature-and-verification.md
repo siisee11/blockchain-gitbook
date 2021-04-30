@@ -58,5 +58,13 @@ Alice가 네트워크에 올린 트랜잭션을 검증자가 유효성 검사를
 
 ## How sign and verify work?
 
+Sign과 Verify과정은 암호학을 사용하여 진행된다. Bitcoin과 Ethereum은 ECDSA를 이용하여 디지털 서명 및 확인과정을 구현하였다. 
+
+
+
+{% embed url="http://blog.somi.me/math/2019/06/10/understanding-ECC-ECDSA/" %}
+
+
+
 
 
