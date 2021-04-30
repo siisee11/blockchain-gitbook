@@ -20,8 +20,9 @@
 * [Transaction](bitcoin/transaction.md)
 * [Unspent Transaction Output](bitcoin/untitled.md)
 * [Mining](bitcoin/mining.md)
-* [Bitcoin Network](bitcoin/bitcoin-network.md)
 * [Wallet](bitcoin/wallet.md)
+* [Signature & Verification](bitcoin/signature-and-verification.md)
+* [Bitcoin Network](bitcoin/bitcoin-network.md)
 
 ## Ethereum
 
@@ -42,6 +43,10 @@
 * [Build DeFi App](ethereum-tutorials/untitled.md)
 * [Build Decentralized Bank](ethereum-tutorials/decentralized-bank.md)
 
+## Ethereum Development Tools
+
+* [Truffle](ethereum-development-tools/truffle.md)
+
 ## Create own coin with golang
 
 * [My own Coin](create-own-coin-with-golang/my-own-coin.md)
@@ -51,10 +56,6 @@
 * [\#4 Transaction Basic](create-own-coin-with-golang/4-transaction-basic.md)
 * [\#5 Wallet](create-own-coin-with-golang/5-wallet.md)
 * [\#6 Transaction Advanced](create-own-coin-with-golang/6-transaction-advanced.md)
-
-## Ethereum Development Tools
-
-* [Truffle](ethereum-development-tools/truffle.md)
 
 ## Binance
 
