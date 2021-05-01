@@ -70,6 +70,22 @@ Sign과 Verify과정은 암호학을 사용하여 디지털 서명이라는 과�
 이 부분에서 가장 찜찜 했던 부분은 공개되어 있는 두 정보를 가지고 유효한 서명인지 판별하는 것이었습니다. 수학적인 내용이 잘 이해가 되지않아 일단 마법의 방정식이 이를 가능케 한다고 생각하도록 하겠습니다.
 {% endhint %}
 
+### 예시 상황 
+
+Alice의 트랜잭션에 서명하고 Bob이 검증한다.
+
+Alice는 트랜잭션의 해시값과 자신의 private key를 마법의 방정식에 넣어 서명을 만들고 이를 트랜잭션에 적어 네트워크에 보낸다.
+
+$$
+MagicFn(tx.Hash, Alice.privateKey) = signature
+$$
+
+Bob은 네트워크에서 Alice의 트랜잭션을 받아 검증한다.
+
+$$
+MagicFn(Alice.PublicKey, signature) == signature.R
+$$
+
 
 
 ### 실습 

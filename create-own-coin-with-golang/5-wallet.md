@@ -136,6 +136,17 @@ func CheckSum(payload []byte) []byte {
 
 	return secondHash[:checksumLength]
 }
+
+// Checksum을 확인해서 {address}에 에러가 없는지 확인한다.
+func ValidateAddress(address string) bool {
+	pubKeyHash := Base58Decode([]byte(address))
+	actualChecksum := pubKeyHash[len(pubKeyHash)-checksumLength:]
+	version := pubKeyHash[0]
+	pubKeyHash = pubKeyHash[1 : len(pubKeyHash)-checksumLength]
+	targetChecksum := Checksum(append([]byte{version}, pubKeyHash...))
+
+	return bytes.Equal(actualChecksum, targetChecksum)
+}
 ```
 
 wallet.go에 사용된 Base58관련 코드는 따로 `wallet/utils.go` 에 저장합니다.
@@ -367,12 +378,18 @@ func (cli *CommandLine) printChain() {
 }
 
 func (cli *CommandLine) createBlockChain(address string) {
+	if !wallet.ValidateAddress(address) {
+		log.Panic("Address is not Valid")
+	}
 	chain := blockchain.InitBlockChain(address)
 	chain.Database.Close()
 	fmt.Println("Finished!")
 }
 
 func (cli *CommandLine) getBalance(address string) {
+	if !wallet.ValidateAddress(address) {
+		log.Panic("Address is not Valid")
+	}
 	chain := blockchain.ContinueBlockChain("") // blockchain을 DB로 부터 받아온다.
 	defer chain.Database.Close()
 
@@ -388,6 +405,12 @@ func (cli *CommandLine) getBalance(address string) {
 
 // {from}에서 {to}로 {amount}만큼 보냅니다.
 func (cli *CommandLine) send(from, to string, amount int) {
+	if !wallet.ValidateAddress(from) {
+		log.Panic("Address is not Valid")
+	}
+	if !wallet.ValidateAddress(to) {
+		log.Panic("Address is not Valid")
+	}
 	chain := blockchain.ContinueBlockChain("") // blockchain을 DB로 부터 받아온다.
 	defer chain.Database.Close()
 
