@@ -56,7 +56,7 @@
 * [\#4 Transaction Basic](create-own-coin-with-golang/4-transaction-basic.md)
 * [\#5 Wallet](create-own-coin-with-golang/5-wallet.md)
 * [\#6 Transaction Advanced](create-own-coin-with-golang/6-transaction-advanced.md)
-* [\#7](create-own-coin-with-golang/7.md)
+* [\#7 UTXO management](create-own-coin-with-golang/7.md)
 
 ## Binance
 
