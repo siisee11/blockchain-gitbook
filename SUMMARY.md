@@ -23,6 +23,7 @@
 * [Wallet](bitcoin/wallet.md)
 * [Signature & Verification](bitcoin/signature-and-verification.md)
 * [Bitcoin Network](bitcoin/bitcoin-network.md)
+* [Merkle Tree](bitcoin/merkle-tree.md)
 
 ## Ethereum
 
@@ -57,6 +58,7 @@
 * [\#5 Wallet](create-own-coin-with-golang/5-wallet.md)
 * [\#6 Transaction Advanced](create-own-coin-with-golang/6-transaction-advanced.md)
 * [\#7 UTXO management](create-own-coin-with-golang/7.md)
+* [\#8 Merkle Tree](create-own-coin-with-golang/8-merkle-tree.md)
 
 ## Binance
 
