@@ -59,6 +59,7 @@
 * [\#6 Transaction Advanced](create-own-coin-with-golang/6-transaction-advanced.md)
 * [\#7 UTXO management](create-own-coin-with-golang/7.md)
 * [\#8 Merkle Tree](create-own-coin-with-golang/8-merkle-tree.md)
+* [\#9 Network 1](create-own-coin-with-golang/9-network-1.md)
 
 ## Binance
 
