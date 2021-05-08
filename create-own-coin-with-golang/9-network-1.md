@@ -612,7 +612,7 @@ go get github.com/vrecan/death/v3
 
 
 {% hint style="success" %}
-코드는  [https://github.com/siisee11/golang-blockchain](https://github.com/siisee11/golang-blockchain) 의 step8 브랜치에 있습니다 . 
+코드는  [https://github.com/siisee11/golang-blockchain](https://github.com/siisee11/golang-blockchain) 의 step9 브랜치에 있습니다 . 
 {% endhint %}
 
 
