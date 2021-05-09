@@ -185,11 +185,11 @@ func (b *Block) HashTransactions() []byte {
 
 Send 시에 블록을 추가하기 때문에 코인베이스 트랜잭션이 발생하여 20코인이 더 주어진다.
 
-![](../.gitbook/assets/image%20%2871%29.png)
+![](../.gitbook/assets/image%20%2878%29.png)
 
 `printchain` 으로 자세한 내용을 보면,
 
-![](../.gitbook/assets/image%20%2872%29.png)
+![](../.gitbook/assets/image%20%2881%29.png)
 
 2번째 블록 \(프린트 상에서는 위에서 첫번째\)에 2개의 transaction이 적혀있고, 그 중 첫번째 트랜잭션은 Coinbase 트랜잭션임을 알 수 있다.
 
