@@ -48,19 +48,19 @@
 
 * [Truffle](ethereum-development-tools/truffle.md)
 
-## Create own coin with golang
+## Golang-Blockchain
 
-* [My own Coin](create-own-coin-with-golang/my-own-coin.md)
-* [\#1 Blocks and Chain](create-own-coin-with-golang/1-blocks-and-chain.md)
-* [\#2 Proof-of-Work](create-own-coin-with-golang/2-proof-of-work.md)
-* [\#3 Save blockchain persistently](create-own-coin-with-golang/3-save-blockchain-persistently.md)
-* [\#4 Transaction Basic](create-own-coin-with-golang/4-transaction-basic.md)
-* [\#5 Wallet](create-own-coin-with-golang/5-wallet.md)
-* [\#6 Transaction Advanced](create-own-coin-with-golang/6-transaction-advanced.md)
-* [\#7 UTXO management](create-own-coin-with-golang/7.md)
-* [\#8 Merkle Tree](create-own-coin-with-golang/8-merkle-tree.md)
-* [\#9 Network 1](create-own-coin-with-golang/9-network-1.md)
-* [\#10 Network 2](create-own-coin-with-golang/10-network-2.md)
+* [Build Blockchain](golang-blockchain/build-blockchain.md)
+* [\#1 Blocks and Chain](golang-blockchain/1-blocks-and-chain.md)
+* [\#2 Proof-of-Work](golang-blockchain/2-proof-of-work.md)
+* [\#3 Save blockchain persistently](golang-blockchain/3-save-blockchain-persistently.md)
+* [\#4 Transaction Basic](golang-blockchain/4-transaction-basic.md)
+* [\#5 Wallet](golang-blockchain/5-wallet.md)
+* [\#6 Transaction Advanced](golang-blockchain/6-transaction-advanced.md)
+* [\#7 UTXO management](golang-blockchain/7.md)
+* [\#8 Merkle Tree](golang-blockchain/8-merkle-tree.md)
+* [\#9 Network 1](golang-blockchain/9-network-1.md)
+* [\#10 Network 2](golang-blockchain/10-network-2.md)
 
 ## Binance
 

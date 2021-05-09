@@ -94,7 +94,7 @@ $$
 
 ### 실습
 
-이 내용은 [wallet](../create-own-coin-with-golang/5-wallet.md) 실습에서 다루고 있습니다.
+이 내용은 [wallet](../golang-blockchain/5-wallet.md) 실습에서 다루고 있습니다.
 
 
 

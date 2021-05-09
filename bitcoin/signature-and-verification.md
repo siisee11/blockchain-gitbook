@@ -90,7 +90,7 @@ $$
 
 ### 실습 
 
-이 부분에 대한 코드 구현은 [내 코인 만들기 섹션의 \#6 Transaction Advanced](../create-own-coin-with-golang/6-transaction-advanced.md) 파트에 있습니다. 
+이 부분에 대한 코드 구현은 [내 코인 만들기 섹션의 \#6 Transaction Advanced](../golang-blockchain/6-transaction-advanced.md) 파트에 있습니다. 
 
 
 
