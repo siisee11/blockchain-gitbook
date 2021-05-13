@@ -10,7 +10,7 @@ description: Storage size optimization
 
 ## Before merkle
 
-Merkle Tree를 추가하기전에 새로운 블록이 생성될 때 코인베이스 트랜잭션이 발생하도록 코드를 수정합니다.
+Merkle Tree를 추가하기전에 **새로운 블록이 생성될 때 코인베이스 트랜잭션이 발생하도록** 코드를 수정합니다.
 
 일단 `transaction.go`파일을 열어 CoinbaseTx의 데이터를 랜덤하게 생성되도록 바꿉니다.
 

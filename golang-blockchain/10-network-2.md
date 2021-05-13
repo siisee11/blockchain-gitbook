@@ -208,13 +208,15 @@ func openDB(dir string, opts badger.Options) (*badger.DB, error) {
 }
 ```
 
-* cli/cli.go : send 함
+* cli/cli.go : send 함수 
 
 ```go
 // {from}에서 {to}로 {amount}만큼 보냅니다.
 // {mintNow}가 true이면 send트랜잭션을 담은 블록을 생성하고
 // {mintNow}가 false이면 트랜잭션을 만들어 중앙 노드(localhost:3000)에게 보냅니다.
-func (cli *CommandLine) send(from, to string, amount int, nodeId string, mintNow bool) {
+func (cli *CommandLine) send(alias, to string, amount int, nodeId string, mintNow bool) {
+	wallets, _ := wallet.CreateWallets(nodeId)
+	from := wallets.GetAddress(alias)
 	if !wallet.ValidateAddress(from) {
 		log.Panic("Address is not Valid")
 	}
@@ -222,7 +224,7 @@ func (cli *CommandLine) send(from, to string, amount int, nodeId string, mintNow
 		log.Panic("Address is not Valid")
 	}
 	chain := blockchain.ContinueBlockChain(nodeId) // blockchain을 DB로 부터 받아온다.
-	UTXOset := blockchain.UTXOSet{chain}
+	UTXOset := blockchain.UTXOSet{Blockchain: chain}
 	defer chain.Database.Close()
 
 	wallets, err := wallet.CreateWallets(nodeId)
@@ -246,13 +248,56 @@ func (cli *CommandLine) send(from, to string, amount int, nodeId string, mintNow
 }
 ```
 
+* wallet/wallets.go \(Alias 추가\)
+
+```go
+// Wallets에 Wallet을 추가합니다.
+func (ws *Wallets) AddWallet(alias string) string {
+	// wallet을 만들고
+	wallet := MakeWallet()
+	// wallet의 주소를 string형태로 저장합니다.
+	address := fmt.Sprintf("%s", wallet.Address())
+
+	// address => wallet 을 매핑에 넣습니다.
+	ws.Wallets[address] = wallet
+	if alias != "" {
+		ws.Alias[alias] = address
+	} else {
+		ws.Alias[address] = address
+	}
+
+	return address
+}
+
+func (ws Wallets) GetAddress(alias string) string {
+	address, exists := ws.Alias[alias]
+	if exists {
+		return address
+	}
+	return alias
+}
+
+// Wallets에 저장된 모든 alias값을 반환합니다.
+func (ws Wallets) GetAllAliases() []string {
+	var aliases []string
+
+	for alias := range ws.Alias {
+		aliases = append(aliases, alias)
+	}
+
+	return aliases
+}
+```
+
 다른 파일들의 자잘한 에러등은 쉽게 처리할 수 있을 것입니다. 
 
 ## Test
 
-드디어 완성된 네트워크를 실험해봅시다. 먼저 터미널을 3개 열어서 아래와 같이 환경변수를 설정한 후 지갑을 만들고 3000번 노드에서는 createblockchain까지 실행해줍니다. 
+드디어 완성된 네트워크를 실험해봅시다. 먼저 터미널을 3개 열어서 아래와 같이 환경변수를 설정한 후 지갑을 만듭니다.
 
-![NODE\_ID&#xB97C; &#xC124;&#xC815;&#xD558;&#xACE0; &#xC9C0;&#xAC11; &#xBC0F; &#xBE14;&#xB85D;&#xCCB4;&#xC778; &#xC0DD;&#xC131;](../.gitbook/assets/image%20%2881%29.png)
+ 3000번 노드에서는 createblockchain까지 실행해줍니다. 
+
+![&#xD658;&#xACBD;&#xBCC0;&#xC218; &#xC124;&#xC815; &#xBC0F; &#xC9C0;&#xAC11; &#xC0DD;&#xC131;](../.gitbook/assets/image%20%2888%29.png)
 
 현재 구현상 GenesisBlock은 cp를 통해 직접 복사해야합니다. \(StartNode가 ContinueBlockChain으로 실행하기 때문\) cp 커맨드를 이용해서 아래와 같이 복사해줍니다.
 
@@ -283,19 +328,17 @@ go run main.go startnode
 
 3001번이 실행되면 3000번 노드에게 Version 정보를 보내고, 3001 번의 Height가 더 낮기 때문에 3000번에서 블록을 가지고와 로컬 DB에 저장합니다.
 
-![&#xB2EC;&#xB77C;&#xC9C4; 3000&#xBC88;&#xC758; block&#xC744; 3001&#xBC88; &#xB178;&#xB4DC;&#xAC00; &#xAC00;&#xC838;&#xC628;&#xB2E4;.](../.gitbook/assets/image%20%2882%29.png)
+![startnode](../.gitbook/assets/image%20%2890%29.png)
 
 이제 3002번 노드를 -minter 옵션을 주어서 실행시킵니다. minter는 3002번 노드의 지갑 주소 입니다. 이제 3002번은 트랜잭션을 모으고 새로운 블록을 채굴하여 블록체인에 연결하는 채굴 노드 역할을 합니다.
 
-![3002&#xBC88;&#xC744; -minter &#xC635;&#xC158;&#xC744; &#xC8FC;&#xC5B4; &#xC11C;&#xBC84; &#xC2E4;&#xD589;](../.gitbook/assets/image%20%2879%29.png)
+![startnode 3002 as minter](../.gitbook/assets/image%20%2887%29.png)
 
 3001번에서 `ctrl-c` 로 빠져나온 후 "-mint" 옵션을 주지 않고 send 커맨드를 실행시켜 보겠습니다. -mint 옵션이 없으면 send 트랜잭션을 네트워크 참여자들에게 보내기만 합니다.
 
-![&quot;-mint&quot; &#xC635;&#xC158;&#xC5C6;&#xC774; send&#xB97C; &#xC2E4;&#xD589;&#xD558;&#xBA74; &#xD2B8;&#xB79C;&#xC7AD;&#xC158;&#xC744; &#xBCF4;&#xB0B4;&#xAE30;&#xB9CC; &#xD55C;&#xB2E4;.](../.gitbook/assets/image%20%2875%29.png)
+3002번 노드가 1개의 트랜잭션을 memoryPool에 모았기 때문에 Mint함수를 실행하여 블록을 채굴합니다.
 
-3001번에서 "-mint" 옵션없이 하나의 send를 더 보내보세요. 3002번 노드가 2개의 트랜잭션을 memoryPool에 모았기 때문에 Mint함수를 실행하여 블록을 채굴합니다.
-
-![3002&#xBC88;&#xC774; 2&#xAC1C;&#xC758; &#xD2B8;&#xB79C;&#xC7AD;&#xC158;&#xC744; &#xBAA8;&#xC544;&#xC11C; &#xCC44;&#xAD74;](../.gitbook/assets/image%20%2876%29.png)
+![3001&#xC774; &#xBCF4;&#xB0B8; tx&#xB97C; 3002&#xAC00; &#xBC1B;&#xACE0;, &#xBE14;&#xB85D;&#xC744; &#xC0DD;&#xC131;&#xD574; &#xC801;&#xB294;&#xB2E4;.](../.gitbook/assets/image%20%2886%29.png)
 
 이로서 적당히\(?\) 동작하는 블록체인을 구현하고 실행해보았습니다.
 
@@ -312,6 +355,12 @@ go run main.go startnode
 ### 블록체인 다운로드
 
 새로 블록체인 네트워크에 접속하면 중앙 노드로 부터 전체 블록을 모두 받아옵니다. 실제 블록체인에서는 Full 노드만 전체 블록체인을 저장합니다.
+
+### UTXO 중복 사용
+
+cli의 send 함수에서 mintNow가 아니라면 UTXO를 업데이트하지 않아 이미 사용한 UTXO에서 중복사용이 일어납니다.
+
+이로인해서 만약  트랜잭션의 내용 \(from, to, amount\)이 같다면 완전히 일치하는 TxID가 만들어집니다. 
 
 ### 난이도 조절
 
