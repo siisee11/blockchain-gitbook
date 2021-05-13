@@ -20,37 +20,233 @@ description: Network에서 구현하지 않았던 함수들을 마저 구현합�
 
 앞서 말했듯이 이 구현의 네트워크에는 **중앙 노드**가 존재합니다. 중앙 노드는 **localhost:3000**으로 하드코딩 되어 있습니다. 네트워크를 참여하고자 하는 노드는 이 중앙 노드를 통해 블록체인을 받아오거나 네트워크에 속한 참여자들을 받아올 수 있습니다.
 
-##  
+##  코드 수정 및 구현
 
+이번 파트에서는 여러 파일에 거쳐서 구현 및 수정을 하기 때문에 복잡해서 모든 코드를 여기에 적지 않겠습니다. 깃허브 step10 브랜치에 코드를 올려놓았으니 깃허브에서 코드를 확인해주세요.
 
+수정한 부분 중 중요한 부분만 코드를 삽입하겠습니다.
 
+* blockchain/blockchain.go : AddBlock, GetBestHeight, GetBlock, GetBlockHashes, MintBlock, retry, openDB 함수
 
+```go
+// {chain}에 {block}을 추가합니다.
+// {block}이 이미 blockchain에 기록되어 있다면 skip합니다.
+func (chain *BlockChain) AddBlock(block *Block) {
+	err := chain.Database.Update(func(txn *badger.Txn) error {
+		// 블록이 이미 있다면 그냥 리턴
+		if _, err := txn.Get(block.Hash); err == nil {
+			return nil
+		}
 
+		blockData := block.Serialize()
+		// 새로운 블록을 DB에 추가
+		err := txn.Set(block.Hash, blockData)
+		Handle(err)
 
+		item, err := txn.Get([]byte("lh"))
+		Handle(err)
+		lastHash, _ := item.ValueCopy(nil)
 
+		item, err = txn.Get(lastHash)
+		Handle(err)
+		lastBlockData, _ := item.ValueCopy(nil)
 
+		// local에 저장되어 있는 가장 최신블록 {lastBlock}
+		lastBlock := Deserialize(lastBlockData)
 
+		// 새로 받은 block의 Height가 더 높다면
+		if block.Height > lastBlock.Height {
+			// lh를 받은 블록의 해시값으로 업데이트합니다.
+			err = txn.Set([]byte("lh"), block.Hash)
+			Handle(err)
+			chain.LastHash = block.Hash
+		}
 
+		return nil
+	})
+	Handle(err)
+}
 
+// lh에 해당하는 블록의 Height 반환.
+func (chain *BlockChain) GetBestHeight() int {
+	var lastBlock Block
 
+	err := chain.Database.View(func(txn *badger.Txn) error {
+		item, err := txn.Get([]byte("lh"))
+		Handle(err)
+		lastHash, _ := item.ValueCopy(nil)
 
+		item, err = txn.Get(lastHash)
+		Handle(err)
+		lastBlockData, _ := item.ValueCopy(nil)
 
+		lastBlock = *Deserialize(lastBlockData)
 
+		return nil
+	})
+	Handle(err)
 
+	return lastBlock.Height
+}
 
+// Block의 Hash값으로 블록 객체를 검색
+func (chain *BlockChain) GetBlock(blockHash []byte) (Block, error) {
+	var block Block
 
+	err := chain.Database.View(func(txn *badger.Txn) error {
+		if item, err := txn.Get(blockHash); err != nil {
+			return errors.New("Block is not found")
+		} else {
+			blockData, _ := item.ValueCopy(nil)
 
+			block = *Deserialize(blockData)
+		}
+		return nil
+	})
+	if err != nil {
+		return block, err
+	}
 
+	return block, nil
+}
 
+// {chain}의 모든 블록의 해시값을 배열로 리턴합니다.
+func (chain *BlockChain) GetBlockHashes() [][]byte {
+	var blocks [][]byte
 
+	iter := chain.Iterator()
 
+	for {
+		block := iter.Next()
 
+		blocks = append(blocks, block.Hash)
 
+		if len(block.PrevHash) == 0 {
+			break
+		}
+	}
 
+	return blocks
+}
 
+// 새로운 블록을 채굴하여 블록체인에 연결하는 함수
+// 새로 추가된 블록을 리턴함.
+func (chain *BlockChain) MintBlock(transactions []*Transaction) *Block {
+	var lastHash []byte
+	var lastHeight int
 
+	for _, tx := range transactions {
+		if !chain.VerifyTransaction(tx) {
+			log.Panic("Invalid Transaction")
+		}
+	}
 
+	// 가장 최근 블록의 Hash가져옴
+	err := chain.Database.View(func(txn *badger.Txn) error {
+		item, err := txn.Get([]byte("lh"))
+		Handle(err)
+		lastHash, err = item.ValueCopy(nil)
+		Handle(err)
 
+		item, err = txn.Get(lastHash)
+		Handle(err)
+		lastBlockData, _ := item.ValueCopy(nil)
+
+		lastBlock := Deserialize(lastBlockData)
+
+		lastHeight = lastBlock.Height
+
+		return err
+	})
+	Handle(err)
+
+	// lashHash를 토대로 다음 문제를 풀어 새로운 블록을 생성.
+	newBlock := CreateBlock(transactions, lastHash, lastHeight+1)
+
+	// 블록의 해시를 키값으로 새로운 블록을 저장하고
+	// lh의 값 또한 새로운 블록의 해시로 업데이트 해줍니다.
+	err = chain.Database.Update(func(txn *badger.Txn) error {
+		err := txn.Set(newBlock.Hash, newBlock.Serialize())
+		Handle(err)
+		err = txn.Set([]byte("lh"), newBlock.Hash)
+
+		chain.LastHash = newBlock.Hash
+
+		return err
+	})
+	Handle(err)
+
+	return newBlock
+}
+
+// "LOCK"파일을 없애고 Truncate 옵션을 주어 다시 시도
+func retry(dir string, originalOpts badger.Options) (*badger.DB, error) {
+	lockPath := filepath.Join(dir, "LOCK")
+	if err := os.Remove(lockPath); err != nil {
+		return nil, fmt.Errorf(`removing "LOCK": %s`, err)
+	}
+	retryOpts := originalOpts
+	retryOpts.Truncate = true
+	db, err := badger.Open(retryOpts)
+	return db, err
+}
+
+// 비정상 종료 혹은 여러 노드가 동시 접근 등 예외 상황을 처리한 Open helper 함수
+func openDB(dir string, opts badger.Options) (*badger.DB, error) {
+	if db, err := badger.Open(opts); err != nil {
+		if strings.Contains(err.Error(), "LOCK") {
+			if db, err := retry(dir, opts); err == nil {
+				log.Println("database unlocked, value log truncated")
+				return db, nil
+			}
+			log.Println("could not unlock database:", err)
+		}
+		return nil, err
+	} else {
+		return db, nil
+	}
+}
+```
+
+* cli/cli.go : send 함
+
+```go
+// {from}에서 {to}로 {amount}만큼 보냅니다.
+// {mintNow}가 true이면 send트랜잭션을 담은 블록을 생성하고
+// {mintNow}가 false이면 트랜잭션을 만들어 중앙 노드(localhost:3000)에게 보냅니다.
+func (cli *CommandLine) send(from, to string, amount int, nodeId string, mintNow bool) {
+	if !wallet.ValidateAddress(from) {
+		log.Panic("Address is not Valid")
+	}
+	if !wallet.ValidateAddress(to) {
+		log.Panic("Address is not Valid")
+	}
+	chain := blockchain.ContinueBlockChain(nodeId) // blockchain을 DB로 부터 받아온다.
+	UTXOset := blockchain.UTXOSet{chain}
+	defer chain.Database.Close()
+
+	wallets, err := wallet.CreateWallets(nodeId)
+	if err != nil {
+		log.Panic(err)
+	}
+	wallet := wallets.GetWallet(from)
+
+	tx := blockchain.NewTransaction(&wallet, to, amount, &UTXOset) // send 트랜잭션도 생성하여
+	if mintNow {
+		cbTx := blockchain.CoinbaseTx(from, "") // 코인베이스 트랜잭션을 생성하고
+		txs := []*blockchain.Transaction{cbTx, tx}
+		block := chain.MintBlock(txs)
+		UTXOset.Update(block)
+	} else {
+		network.SendTx(network.KnownNodes[0], tx)
+		fmt.Println("send tx")
+	}
+
+	fmt.Println("Success!")
+}
+```
+
+다른 파일들의 자잘한 에러등은 쉽게 처리할 수 있을 것입니다. 
 
 ## Test
 
@@ -137,5 +333,5 @@ go run main.go startnode
 
 
 
-Last updated: May 10, 2021
+Last updated: May 11, 2021
 

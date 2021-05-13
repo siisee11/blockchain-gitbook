@@ -418,6 +418,9 @@ func (cli *CommandLine) printChain() {
 		fmt.Printf("PoW: %s\n", strconv.FormatBool(pow.Validate()))
 		for _, tx := range block.Transactions {
 			fmt.Println(tx)
+			if !tx.IsCoinbase() {
+				fmt.Printf("Transcation verification: %s\n", strconv.FormatBool(chain.VerifyTransaction(tx)))
+			}
 		}
 		fmt.Println()
 
@@ -476,18 +479,16 @@ printchain 커맨드로 체인을 출력해봅시다. 아래와 같이 Genesis B
 go run main.go printchain
 ```
 
-![printchain](../.gitbook/assets/image%20%2861%29.png)
+![printchain](../.gitbook/assets/image%20%2885%29.png)
 
-1번째 주소에서 2번째 주소로 30을 송금해보고, printchain으로 결과를 확인합니다. 두번째 블록에 기록된 트랜잭션의 상세 내용을 확인할 수 있습니다.
+1번째 주소에서 2번째 주소로 30을 송금해보고, printchain으로 결과를 확인합니다. 두번째 블록에 기록된 트랜잭션의 상세 내용을 확인할 수 있습니다. Verification이 성공했음을 출력합니다.
 
 ```text
 go run main.go send -from <A1> -to <A2> -amount 30
 go run main.go printchain
 ```
 
-![After first transaction](../.gitbook/assets/image%20%2858%29.png)
-
-
+![Transaction verification: true](../.gitbook/assets/image%20%2884%29.png)
 
 {% hint style="success" %}
 코드는  [https://github.com/siisee11/golang-blockchain](https://github.com/siisee11/golang-blockchain) 의 step6 브랜치에 있습니다 . 

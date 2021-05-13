@@ -43,7 +43,7 @@ Gitbook이 한글지원이 잘 안돼서 문장의 마지막 글자가 지워지
 
 ### 작성자 
 
-* 남재윤
+* 남재윤 \([https://github.com/siisee11](https://github.com/siisee11)\)
 
 
 
