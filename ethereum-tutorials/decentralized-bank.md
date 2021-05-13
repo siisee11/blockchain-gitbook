@@ -892,10 +892,6 @@ confirm을 누르면 계좌에서 3 ETH가 빠져나간 것을 확인할 수 있
 
 ![](../.gitbook/assets/image%20%2853%29.png)
 
-### Step \#14 To Be Continueeee
-
-대출이나 UI 업데이트, 코드 리팩토링 등은 추후에 진행하도록 한다.
-
 
 
 ## Source code on Github
