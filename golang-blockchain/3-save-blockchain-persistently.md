@@ -26,7 +26,7 @@ Key-Value 스토어에는 크게 두가지의 연산이 존재합니다. Set, Ge
 
 새로운 파일\(`blockchain/blockchain.go` \)을 생성합니다. 블록을 저장하고 접근할 수 있게 해주는 Blockchain structure를 새로운 파일에 따로 다시 정의하였습니다. 데이터베이스에 저장하는 것은 아래 그림과 같이 저장합니다.
 
-![&#xB514;&#xBE44; &#xAD6C;&#xC870;](../.gitbook/assets/image%20%2892%29.png)
+![&#xB514;&#xBE44; &#xAD6C;&#xC870;](../.gitbook/assets/image%20%28101%29.png)
 
 ```go
 package blockchain

@@ -4,9 +4,27 @@ description: Transaction에 서명을 추가하여 보안을 강화한다.
 
 # \#6 Transaction Advanced
 
-Transaction\(basic\)에서는 보안이 전혀 없는 형태의 트랜잭션을 구현하였다. 이제 Wallet에서 생성한 private key, public key, address을 이용하여 signature과 validation을 진행하여 트랜잭션의 보안을 강화할 것이다.
+Transaction\(basic\)에서는 보안이 전혀 없는 형태의 트랜잭션을 구현하였습니다. 이제 Wallet에서 생성한 private key, public key, address을 이용하여 signature과 validation을 진행하여 트랜잭션의 보안을 강화할 것입니다.
 
-이 실습 내용은 [Bitcoin 섹션의 Wallet, Signature & Verification](../bitcoin/wallet.md) 파트의 이론적 지식을 요구합니다.  
+이 실습 내용은 Bitcoin 섹션의 [Wallet](../bitcoin/wallet.md), [Signature & Verification](../bitcoin/signature-and-verification.md) 파트의 이론적 지식을 요구합니다. 
+
+아래 그림들을 통해서 코드를 이해해보세요.
+
+Key와 Hash, Address 관계도 입니다. 이탤릭체로 예시로 사용할 값을 적어 놓았습니다.
+
+![Key, Hash, Address](../.gitbook/assets/image%20%2897%29.png)
+
+먼저 Coinbase 트랜잭션 입니다.
+
+![Coinbase &#xD2B8;&#xB79C;&#xC7AD;&#xC158;](../.gitbook/assets/image%20%28104%29.png)
+
+이어지는 일반 트랜잭션 입니다.
+
+![jy -&amp;gt; ht 30 &#xD2B8;&#xB79C;&#xC7AD;&#xC158;](../.gitbook/assets/image%20%2898%29.png)
+
+Signature와 verification의 간략한 도식입니다.
+
+![Sign and verify](../.gitbook/assets/image%20%2893%29.png)
 
 ## blockchain/tx.go
 

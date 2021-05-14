@@ -8,6 +8,10 @@ Wallet에 대한 코드를 작성하기전에 [Wallet](../bitcoin/wallet.md)에 
 
 Wallet은 거래를 위해 사용하는 address와 보안을 위해 Public/Private Key쌍으로 이루어져있습니다. 이를 구현해 보도록하겠습니다.
 
+아래는 wallet에서 사용되는 값들의 관계를 나타낸 것입니다. 화살표 방향으로만 유도가 가능합니다.
+
+![Wallet key, hash and address](../.gitbook/assets/image%20%2894%29.png)
+
 ## blockchain/tx.go
 
 먼저 코드 리팩토링을 진행합니다. `transcation.go`에서 txIn과 txOut에 관련된 코드를 `blockchain/tx.go` 로 옮김니다.
