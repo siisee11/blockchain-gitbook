@@ -6,13 +6,41 @@ description: 기초적인 Transaction
 
 비트코인의 가장 중요한 기능 Transaction을 구현할 것 입니다. 이 파트에서 구현하는 트랜잭션은 완벽한 트랜잭션은 아니고 기본 동작을 구현한 것입니다. 나머지 파트를 진행하면서 점차 완성되어 갈 것입니다.
 
-##  blockchain/transaction.go
+## 배경지 
 
-이제 우리는 블록에 저장될 "거래"를 구현할 것입니다. 기존 구현에서의 Block.Data가 트랜잭션의 모음으로 대체될 것 입니다.
-
-`blockchain/transaction.go` 파일을 열어서 아래 내용을 붙혀넣습니다. 사실 따라서 타이핑해보는 것이 좋습니다.
+이제 우리는 블록에 저장될 "거래"\(트랜잭션\)를 구현할 것입니다. 기존 구현에서의 Block.Data가 트랜잭션의 모음으로 대체될 것 입니다.
 
 하기 내용은 [Transaction](../bitcoin/transaction.md)과 [UTXO](../bitcoin/untitled.md)의 개념없이 이해하기 힘들 수 있습니다. 단어를 클릭하여 해당 키워드를 습득하고 돌아오시는 걸 추천드립니다.
+
+### Coinbase Transaction
+
+블록이 채굴될 때, 채굴자에게 보상으로 코인을 주는 트랜잭션을 Coinbase 트랜잭션이라고 합니다. 모든 블록의 첫번째 트랜잭션은 Coinbase 트랜잭션 입니다. 
+
+[https://www.blockchain.com/explorer](https://www.blockchain.com/explorer) 에서 아무 블록이나 눌러서 트랜잭션을 확인해봅시다. 
+
+![COINBASE &#xD2B8;&#xB79C;&#xC7AD;&#xC158;](../.gitbook/assets/image%20%2891%29.png)
+
+이 튜토리얼에서 구현할 coinbase 트랜잭션은 아래와 같은 구조입니다. 하나의 TxInput과 채굴자에게 주어지는 하나의 TxOutput\(TXO\)으로 구성되어 있습니다.
+
+![&#xAD6C;&#xD604;&#xD560; Coinbase &#xD2B8;&#xB79C;&#xC7AD;&#xC158;](../.gitbook/assets/image%20%2895%29.png)
+
+Coin이 생성되는 Coinbase 트랜잭션이기 때문에 TxInput이 TXO를 참조하고 있지않습니다. \(TxInput은 사용할 UTXO를 가르키는 일을 합니다.\) TxOutput에는 채굴자의 PubKey \(아직은 암호화를 거치지 않고 단순 문자열로 사용\)와 주어지는 코인의 양이 기록됩니다.
+
+위의 Coinbase 트랜잭션만 발생한 상황에서 jy에게 주어진 100코인짜리 TXO는 아직 소모되지 않았기 때문에 이를 Unspent\(사용되지않은\) TXO라고 하여 **UTXO**라고 부릅니다.
+
+jy가 받은 100 coin 중 30 coin을 ht에게 보내는 새로운 트랜잭션을 만듭니다.
+
+![jy-&amp;gt;ht &#xD2B8;&#xB79C;&#xC7AD;&#xC158;](../.gitbook/assets/image%20%2894%29.png)
+
+TxInput은 TXO를 가르키는 구조체입니다. 어떤 {ID}를 가진 트랜잭션의 {Out}번 째 TXO를 사용할 지를 표시합니다. 해당 TXO가 자신의 TXO임을 증명하는 {Sig}도 포함시킵니다.
+
+TxInput이 가르키는 TXO는 100 Coin 짜리 입니다. 30 coin, 70 coin 짜리 TXO로 나누어져 30은 ht에게 보내지고 70은 다시 jy에게로 반환됩니다.
+
+이제 코딩을 시작해봅시다.
+
+## blockchain/transaction.go
+
+`blockchain/transaction.go` 파일을 열어서 아래 내용을 붙혀넣습니다. 사실 따라서 타이핑해보는 것이 좋습니다.
 
 ```go
 package blockchain

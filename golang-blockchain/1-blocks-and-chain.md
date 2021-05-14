@@ -23,7 +23,7 @@ go mod init github.com/<user-name>/golang-blockchain
 
 ## main.go
 
-`main.go` 파일을 열어 아래와 같이 작성합니다.
+`main.go` 파일을 열어 아래와 같이 작성합니다. 코드는 단순하기 때문에 설명은 주석으로 대체하겠습니다. step 1의 관한 이론적 지식은 [blockchain structure](../blockchain-overview/blockchain-structure.md)에서 찾아볼 수 있습니다.
 
 ```go
 package main

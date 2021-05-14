@@ -6,7 +6,7 @@ description: 'Blockchain의 꽃, PoW를 벌써 코딩해봅시다.'
 
 ## blockchain/proof.go
 
-이전 코드에서 AddBlock함수를 부르면 무한으로 블록을 추가할 수 있었습니다. 이제 작업증명 방식을 도입해서 AddBlock함수가 불렸을 때 작업을 진행하고 작업이 완료되어야 블록을 추가할 수 있도록 바꾸겠습니다. 
+이전 코드에서 AddBlock함수를 부르면 무한으로 블록을 추가할 수 있었습니다. 이제 작업증명 방식을 도입해서 AddBlock함수가 불렸을 때 작업을 진행하고 작업이 완료되어야 블록을 추가할 수 있도록 바꾸겠습니다. 이 부분에 해당하는 이론적 지식은 [blockchain structure](../blockchain-overview/blockchain-structure.md) 혹은 [PoW ](../bitcoin/proof-of-work.md)에서 찾아볼 수 있습니다. 
 
 `blockchain/proof.go` 파일을 생성하고 아래 내용을 붙혀넣습니다. 자세한 내용은 주석을 참고하세요.
 
