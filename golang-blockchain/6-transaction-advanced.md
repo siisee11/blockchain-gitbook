@@ -16,7 +16,7 @@ Key와 Hash, Address 관계도 입니다. 이탤릭체로 예시로 사용할 �
 
 먼저 Coinbase 트랜잭션 입니다.
 
-![Coinbase &#xD2B8;&#xB79C;&#xC7AD;&#xC158;](../.gitbook/assets/image%20%28104%29.png)
+![Coinbase &#xD2B8;&#xB79C;&#xC7AD;&#xC158;](../.gitbook/assets/image%20%28105%29.png)
 
 이어지는 일반 트랜잭션 입니다.
 

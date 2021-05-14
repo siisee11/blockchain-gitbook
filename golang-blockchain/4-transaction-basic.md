@@ -22,7 +22,7 @@ description: 기초적인 Transaction
 
 이 튜토리얼에서 구현할 coinbase 트랜잭션은 아래와 같은 구조입니다. 하나의 TxInput과 채굴자에게 주어지는 하나의 TxOutput\(TXO\)으로 구성되어 있습니다.
 
-![&#xAD6C;&#xD604;&#xD560; Coinbase &#xD2B8;&#xB79C;&#xC7AD;&#xC158;](../.gitbook/assets/image%20%28107%29.png)
+![&#xAD6C;&#xD604;&#xD560; Coinbase &#xD2B8;&#xB79C;&#xC7AD;&#xC158;](../.gitbook/assets/image%20%28108%29.png)
 
 Coin이 생성되는 Coinbase 트랜잭션이기 때문에 TxInput이 TXO를 참조하고 있지않습니다. \(TxInput은 사용할 UTXO를 가르키는 일을 합니다.\) TxOutput에는 채굴자의 PubKey \(아직은 암호화를 거치지 않고 단순 문자열로 사용\)와 주어지는 코인의 양이 기록됩니다.
 
@@ -30,7 +30,7 @@ Coin이 생성되는 Coinbase 트랜잭션이기 때문에 TxInput이 TXO를 참
 
 jy가 받은 100 coin 중 30 coin을 ht에게 보내는 새로운 트랜잭션을 만듭니다.
 
-![jy-&amp;gt;ht &#xD2B8;&#xB79C;&#xC7AD;&#xC158;](../.gitbook/assets/image%20%28106%29.png)
+![jy-&amp;gt;ht &#xD2B8;&#xB79C;&#xC7AD;&#xC158;](../.gitbook/assets/image%20%28107%29.png)
 
 TxInput은 TXO를 가르키는 구조체입니다. 어떤 {ID}를 가진 트랜잭션의 {Out}번 째 TXO를 사용할 지를 표시합니다. 해당 TXO가 자신의 TXO임을 증명하는 {Sig}도 포함시킵니다.
 
