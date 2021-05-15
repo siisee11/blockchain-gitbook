@@ -324,7 +324,7 @@ cd ..
 go run main.go startnode
 ```
 
-{% hint style="info" %}
+{% hint style="danger" %}
 3000번 노드가 중앙 노드이므로 3000번 부터 실행해야합니다.
 {% endhint %}
 
