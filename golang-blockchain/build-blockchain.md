@@ -1,8 +1,8 @@
 ---
-description: Golang으로 나의 코인 만들기
+description: Golang으로 블록체인 만들기
 ---
 
-# Build Blockchain
+# Go언어 블록체인
 
 {% embed url="https://www.youtube.com/channel/UCYqCZOwHbnPwyjawKfE21wg" %}
 

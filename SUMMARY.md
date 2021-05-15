@@ -50,7 +50,7 @@
 
 ## Golang-Blockchain
 
-* [Build Blockchain](golang-blockchain/build-blockchain.md)
+* [Go언어 블록체인](golang-blockchain/build-blockchain.md)
 * [\#1 Blocks and Chain](golang-blockchain/1-blocks-and-chain.md)
 * [\#2 Proof-of-Work](golang-blockchain/2-proof-of-work.md)
 * [\#3 Save blockchain persistently](golang-blockchain/3-save-blockchain-persistently.md)
