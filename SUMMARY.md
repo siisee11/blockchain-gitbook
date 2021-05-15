@@ -61,6 +61,8 @@
 * [\#8 Merkle Tree](golang-blockchain/8-merkle-tree.md)
 * [\#9 Network 1](golang-blockchain/9-network-1.md)
 * [\#10 Network 2](golang-blockchain/10-network-2.md)
+* [\#11 p2p network](golang-blockchain/11-p2p-network.md)
+* [\#12 Bootstrapping](golang-blockchain/12-bootstrapping.md)
 
 ## Binance
 
