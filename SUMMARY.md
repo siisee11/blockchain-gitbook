@@ -61,7 +61,7 @@
 * [\#9 Network 1](golang-blockchain/9-network-1.md)
 * [\#10 Network 2](golang-blockchain/10-network-2.md)
 * [\#11 p2p network](golang-blockchain/11-p2p-network.md)
-* [\#12 Rendezvous](golang-blockchain/12-bootstrapping.md)
+* [\#12 Peer Discovery](golang-blockchain/12-bootstrapping.md)
 
 ## Binance
 
