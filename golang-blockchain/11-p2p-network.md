@@ -20,8 +20,6 @@ libp2p는 p2p 네트워크 관련된 모듈입니다. 네트워크는 오래된 
 
 일단 p2p 네트워크 구현의 첫번째 단계로, 기존의 네트워크를 libp2p를 사용하도록 바꾸도록 하겠습니다. 통신 내용 \(HandleXXX, SendXXX\)는 그대로 유지하고 실제로 네트워크 통신하는 코드만 수정합니다.
 
- 
-
 ## network/network.go
 
 기존의 net을 사용하던 네트워크 코드를 삭제하고 \(StartNode, SendData\) 새로 LibP2P를 이용한 코드를 삽입합니다.
@@ -307,7 +305,7 @@ func (cli *CommandLine) StartP2P(nodeId, minterAddress, dest string, secio bool)
 }
 ```
 
-send 함수에서 SendTx는 아직 host를 생성하지 않았기 때문에 사용하지 못하므로, SendTxOnce 함수를 사용합니다. 메세지를 보낼 대상인 targetPeer로 인자로 추가해야합니다. \(아래 Cmd 인자 추가도 잊지 마세요.\)
+send 함수에서 SendTx는 아직 host를 생성하지 않았기 때문에 사용하지 못하므로, SendTxOnce 함수를 사용합니다. 중앙 노드의 peerID가 "localhost:3000"처럼 고정되어 있지 않기 때문에 메세지를 보낼 대상인 targetPeer로 인자로 추가해야합니다. \(아래 Cmd 인자 추가도 잊지 마세요.\) 
 
 ```go
 // {from}에서 {to}로 {amount}만큼 보냅니다.
@@ -362,7 +360,42 @@ go mod tidy
 대신, 이번 파트에서는 같은 LAN \(192.168.0.x\)의 다른 컴퓨터끼리도 통신이 가능합니다.
 {% endhint %}
 
- 
+ 간단하게 다시 진행해보겠습니다. 일단 3000번 노드에서 지갑과 블록체인을 만들고 초기 블록체인을 복사한 후 send를 진행합니다.
+
+```bash
+// NODE 3000
+export NODE_ID=3000
+go run main.go createwallet -alias w1
+go run main.go createblockchain -address w1
+cp -r tmp/blocks_3000 tmp/blocks_3001
+cp -r tmp/blocks_3000 tmp/blocks_3002
+go run main.go send -from w1 -to <address of w2> -amount 10 -mint
+
+// NODE 3001
+export NODE_ID=3001
+go run main.go createwallet -alias w2
+```
+
+![](../.gitbook/assets/image%20%28111%29.png)
+
+다음으로 3000번 노드의 서버를 구동하고, 하나의 터미널을 더 켜서 NODE\_ID 3002를 부여하고 minter옵션을 주어 서버를 구동합니다.
+
+```bash
+export NODE_ID=3002
+go run main.go createwallet -alias w3
+go run main.go startp2p -dest <targetPeer> -minter w3
+```
+
+![](../.gitbook/assets/image%20%28110%29.png)
+
+3001번 노드에서 send 트랜잭션 두개를 발생시키면 다른 서버가 해당 트랜잭션을 받고 3002번 노드에서는 minting이 발생함을 볼 수 있다.
+
+```bash
+go run main.go startp2p -dest <targetPeer>
+go run main.go send -from w2 -to <wallet of node 1> -amount 1 -peer <targetPeer> 
+```
+
+![](../.gitbook/assets/image%20%28112%29.png)
 
 
 
