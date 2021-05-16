@@ -8,7 +8,6 @@
 * [The emergence of blockchain](blockchain-overview/blockchain-overview.md)
 * [Blockchain vs Bitcoin](blockchain-overview/blockchain-vs-bitcoin.md)
 * [Blockchain Structure](blockchain-overview/blockchain-structure.md)
-* [Blockchain Operations](blockchain-overview/blockchain-operations.md)
 * [Blockchain examples](blockchain-overview/blockchain-examples.md)
 * [Blockchain Consensus](blockchain-overview/blockchain-consensus.md)
 
@@ -22,8 +21,8 @@
 * [Mining](bitcoin/mining.md)
 * [Wallet](bitcoin/wallet.md)
 * [Signature & Verification](bitcoin/signature-and-verification.md)
-* [Bitcoin Network](bitcoin/bitcoin-network.md)
 * [Merkle Tree](bitcoin/merkle-tree.md)
+* [Bitcoin Network](bitcoin/bitcoin-network.md)
 
 ## Ethereum
 
@@ -62,7 +61,7 @@
 * [\#9 Network 1](golang-blockchain/9-network-1.md)
 * [\#10 Network 2](golang-blockchain/10-network-2.md)
 * [\#11 p2p network](golang-blockchain/11-p2p-network.md)
-* [\#12 Bootstrapping](golang-blockchain/12-bootstrapping.md)
+* [\#12 Rendezvous](golang-blockchain/12-bootstrapping.md)
 
 ## Binance
 

@@ -376,7 +376,7 @@ export NODE_ID=3001
 go run main.go createwallet -alias w2
 ```
 
-![](../.gitbook/assets/image%20%28111%29.png)
+![](../.gitbook/assets/image%20%28117%29.png)
 
 다음으로 3000번 노드의 서버를 구동하고, 하나의 터미널을 더 켜서 NODE\_ID 3002를 부여하고 minter옵션을 주어 서버를 구동합니다.
 
@@ -386,7 +386,7 @@ go run main.go createwallet -alias w3
 go run main.go startp2p -dest <targetPeer> -minter w3
 ```
 
-![](../.gitbook/assets/image%20%28110%29.png)
+![](../.gitbook/assets/image%20%28115%29.png)
 
 3001번 노드에서 send 트랜잭션 두개를 발생시키면 다른 서버가 해당 트랜잭션을 받고 3002번 노드에서는 minting이 발생함을 볼 수 있다.
 
@@ -395,7 +395,7 @@ go run main.go startp2p -dest <targetPeer>
 go run main.go send -from w2 -to <wallet of node 1> -amount 1 -peer <targetPeer> 
 ```
 
-![](../.gitbook/assets/image%20%28112%29.png)
+![](../.gitbook/assets/image%20%28120%29.png)
 
 
 
