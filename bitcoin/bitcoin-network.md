@@ -46,19 +46,19 @@ Inital이라는 말이 "처음 딱 한번"이라는 의미를 가지긴 하지�
 
 Bitcoin Core 0.9.3 버전\(27 September 2014 released\)까지 blocks-first라고 불리는 심플한 IBD 메소드를 사용하였다. 이 방법의 목적은 best blockchain으로 부터 모든 블록을 순서대로 다운로드 받는 것이다.
 
-![](../.gitbook/assets/image%20%28121%29.png)
+![](../.gitbook/assets/image%20%28122%29.png)
 
 위 그림은 Blocks-First IBD의 개략적인 동작을 보여줍니다. 처음에는 아무것도 없으므로 No-No 루트를 따라 인벤토리를 받아오고 이를 통해서 블록을 요청하여 받아옵니다. 
 
 노드가 처음 시작할 때, local best block chain은 하나의 블록\(Hardcode되어 있는 Genesis 블록\)만 가지고 있습니다. 이 노드는 sync node라고 부르는 peer에 접속하여 아래 그림과 같은 "getblocks" 메세지를 보냅니다.
 
-![IBD&#xC758; &#xCCAB; GetBlocks &#xBA54;&#xC138;&#xC9C0;](../.gitbook/assets/image%20%28119%29.png)
+![IBD&#xC758; &#xCCAB; GetBlocks &#xBA54;&#xC138;&#xC9C0;](../.gitbook/assets/image%20%28120%29.png)
 
 getblocks 메세지의 header hashes 필드에는 IBD 노드가 가지고 있는 유일한 블록인 Genesis 블록의 헤더 해시\(6fe2…0000\)가 적힙니다.
 
 getblocks 메세지를 받으면 sync노드는 첫번째\(이자 유일한\) 헤더 해시를 local best block chain에서 찾습니다. Sync노드는 Block 0을 찾게되고 block 1부터 500개의 인벤토리들을 "inv" 메세지에 실어서 보냅니다.
 
-![IBD&#xC758; &#xCCAB; Inv &#xBA54;&#xC138;&#xC9C0;](../.gitbook/assets/image%20%28122%29.png)
+![IBD&#xC758; &#xCCAB; Inv &#xBA54;&#xC138;&#xC9C0;](../.gitbook/assets/image%20%28123%29.png)
 
 인벤토리는 네트워크의 어떤 정보에 대한 유일한 식별자 입니다. 예를 들어 블록이라는 정보에 대해서는 블록 헤더 해시가 식별자로 사용됩니다.
 
@@ -66,7 +66,7 @@ inv 메세지에 적힌 블록 인벤토리들은 block chain에 적힌 순서�
 
 IBD 노드는 받은 인벤토리를 참고해서 sync node에게 128개의 블록에 대해 요청하는 "getdata" 메세지를 보냅니다.
 
-![IBD&#xC758; &#xCCAB; Getdata &#xBA54;&#xC138;&#xC9C0;](../.gitbook/assets/image%20%28118%29.png)
+![IBD&#xC758; &#xCCAB; Getdata &#xBA54;&#xC138;&#xC9C0;](../.gitbook/assets/image%20%28119%29.png)
 
 Blocks-First 방식에서 블록들이 순서대로 요청되고 보내지는게 중요합니다. 왜냐하면 각 블록의 헤더는 이전 블록의 헤더 해시를 참조하기 때문입니다. 이 것은 IBD 노드가 부모 블록를 받지 못한 블록을 검증할 수 없다는 것을 의미합니다. 부모 블록을 못받았기 때문에 검증할 수 없는 블록을 Orphan 블록이라고 부르면 본문 끝에서 다룹니다.
 
@@ -107,7 +107,7 @@ Bitcoin Core 0.10.0 은 headers-first라고 불리는 IBD 메소드를 사용합
 
 getheaders 메세지를 받은 원격 노드는 Header Hashes에 적혀있는 헤더 해시를 local best block chain에서 찾습니다. 그 다음 블록부터 2000개의 블록의 헤더 해시를 "headers" 메세지에 담아서 돌려 보냅니다.
 
-![&#xCCAB; headers &#xBA54;&#xC138;&#xC9C0;](../.gitbook/assets/image%20%28116%29.png)
+![&#xCCAB; headers &#xBA54;&#xC138;&#xC9C0;](../.gitbook/assets/image%20%28117%29.png)
 
 Full validation은 블록의 정보가 필요하지만, partial validation은 가능합니다. 블록의 헤더들을 검사하여 헤더의 field가 컨샌서스를 따르고 있는지 판단합니다. 이렇게 partially validate된 블록 헤더를 가진 후에 IBD 노드는 아래 2개의 일을 병렬적으로 진행합니다.
 
