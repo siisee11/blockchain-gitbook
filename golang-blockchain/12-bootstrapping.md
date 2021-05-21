@@ -400,17 +400,40 @@ func (cli *CommandLine) mint(to string, nodeId string) {
 지갑을 만들고 rendezvous 문자열을 "tuto"로 하여 P2P 호스트를 실행하겠습니다. 
 
 ```text
+export NODE_ID=3000
 go run main.go createwallet -alias w1
 go run main.go startp2p -rendezvous tuto
 ```
 
 ![startp2p](../.gitbook/assets/image%20%28115%29.png)
 
-블록을 채굴하여 블록체인에 블록 1을 추가합니다.
+다른 터미널을 열어서 NODE\_ID를 3001로 하여 호스트를 실행해봅시다.
 
 ```text
-go run main.go mint -minter w1
+export NODE_ID=3001
+go run main.go startp2p -rendezvous tuto 
 ```
 
+{% hint style="warning" %}
+Bootstrap노드에 정보가 아직 전파 되지 않아 접속이 안될 수도 있습니다. 잠시 시간을 두고 다시 커맨드를 실행하면 접속이 될 것입니다.
+{% endhint %}
 
+접속이 된 것을 확인하면 3001번 노드의 접속을 끊고\(ctrl-c\) 블록을 추가한 후 다시 접속합니다.
+
+```text
+go run main.go mint -minter w2
+go run main.go startp2p -rendezvous tuto
+```
+
+![](../.gitbook/assets/image%20%28124%29.png)
+
+새로 추가된 블록을 3000번 노드로 전송하는 것을 확인할 수 있습니다.
+
+
+
+{% hint style="success" %}
+여기 까지의 구현은  [https://github.com/siisee11/golang-blockchain](https://github.com/siisee11/golang-blockchain) 의 step12 브랜치에 있습니다 . 
+{% endhint %}
+
+Last updated: May 21, 2021
 
