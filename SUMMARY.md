@@ -39,6 +39,7 @@
 
 ## Ethereum Tutorials
 
+* [Geth](ethereum-tutorials/geth.md)
 * [CryptoZombies](ethereum-tutorials/exercise-cryptozombies.md)
 * [Build DeFi App](ethereum-tutorials/untitled.md)
 * [Build Decentralized Bank](ethereum-tutorials/decentralized-bank.md)
@@ -62,6 +63,7 @@
 * [\#10 Network 2](golang-blockchain/10-network-2.md)
 * [\#11 p2p network](golang-blockchain/11-p2p-network.md)
 * [\#12 Peer Discovery](golang-blockchain/12-bootstrapping.md)
+* [\#13 Console](golang-blockchain/13-console.md)
 
 ## Binance
 
