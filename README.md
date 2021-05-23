@@ -41,6 +41,8 @@ Gitbook이 한글지원이 잘 안돼서 문장의 마지막 글자가 지워지
 
 {% embed url="https://ethereum.org/en/" %}
 
+{% embed url="https://programmingblockchain.gitbook.io/programmingblockchain/" %}
+
 
 
 ### 작성자 
