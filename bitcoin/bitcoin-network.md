@@ -124,13 +124,52 @@ IBD 노드가 최신 블록체인과 싱크가 되면, block을 받고 다음에
 
 ## Block Broadcasting
 
+채굴자가 블록을 발견하면, 새로운 블록을 아래의 방법 중 하나를 이용하여 피어들에게 전송합니다.
+
+* Unsolicited Block Push: 채굴자가 그의 풀 노드 피어에게 "block"메세지를 보냅니다.  
+* Standard Block Relay: 마이너가 기본적인 relay node\(전달 노드\)역할을 합니다. 새로운 블록를 가르키는 inventory를 담은 "inv" 메세지를 모든 피어들에게 보냅니다. "inv" 메세지를 받는 피어의 종류에 따라 다른 응답을 보입니다. 
+  * Block-First\(BF\) 피어들은 "getdata"로 full block 데이터를 요청합니다. 
+  * Header-First\(HF\) 피어들은 "getheaders" 메세지로 full header에 대한 정보를 요청합니다. 이는 best header chain의 가장 height가 높은 헤더의 해시를 포함하고, fork detection을 위해서 이전의 몇개의 블록 헤더 또한 포함합니다. 이 후에 "getdata"로 full block을 요청합니다. 
+  * Simplified Payment Verification \(SPV\) 클라이언트는 "getdata" 메세지로 머클 블록을 요청합니다.     
+* Direct Headers Announcement: 새로운 블록의 full header를 담고있는 "headers" 메세지를 곧 바로 보내는 방법입니다. 이는 Standard Block Relay 방식에서 HF노드들이 쓸대없이 "inv"메세지를 받고 "getheaders"메세지를 다시 요청하는 round trip overhead를 줄여줍니다. HF 노드는 메세지를 받고 header를 검증한 후 "getdata"로 full block을 요청할 것입니다. 커낵션 핸드쉐이크 단계\(네트워크 접속 단계\)에서 HF 노드들은 "sendheaders"라는 특수 메세지를 보내서 "inv" 메세지보다 "headers" 메세지를 선호함을 미리 알려줍니다. 
+
+기본적으로, Bitcoin Core는 "sendheaders" 메세지를 보낸 노드들에게는 direct header announcment 방식으로, 그렇지 않은 노드들에게는 standard block relay 방식으로 블록을 전파합니다. 아래는 메세지 종류에 대한 표입니다.
+
+![](../.gitbook/assets/image%20%28125%29.png)
+
+## Orphan Blocks
+
+단어에서 강력하게 뜻이 전해지듯이, orphan block은 부모 블록이 알려지지않은 블록을 말합니다. Previous block header hash 필드가 가르키는 블록이 아직 다운로드 되지 않은 경우입니다. Orphan블록은 부모 블록이 있지만 best block chain에 속하지 못하는 블록인 stale block과는 다른 개념입니다.
+
+![Difference Between Orphan And Stale Blocks](../.gitbook/assets/image%20%28126%29.png)
+
+###  Block First Node
+
+BF 노드가 orphan block을 다운로드 받았을 때, BF 노드는 그것을 validate 시킬 수 없습니다. 대신에 노드는 "getblocks" 메세지를 orphan block을 보낸 노드\(전송 노드\)에게 보냅니다. 전송 노드는 miss된 블록들의 인벤토리를 담아서 "inv" 메세지를 반환하고 "getdata", "block" 메세지가 추가적으로 발생하여 miss된 블록을 다운로드 받아 orphan block을 유효화 합니다.
+
+### Header First Node
+
+HF 노드는 실제 블록을 가져오기 전에 헤더를 먼저 다운로드 받아서 검증하므로 이런 복잡한 프로세스를 스킵할 수 있습니다.
+
+## Transaction Broadcasting
+
+피어에게 트랜잭션을 보내기 위해서 먼저 "inv" 메세지를 보냅니다. "getdata" 메세지로 응답이 온다면 "tx" 메세지를 통해 트랜잭션을 보냅니다. 트랜잭션을 받은 노드는 트랜잭션이 유효하다면 같은 방법으로 트랜잭션을 전달합니다.
+
+## Memory Pool
+
+Full peer\(풀 피어\)는 다음 블록에 포함될 수 있는 아직 승인되지 않은\(unconfirmed\) 트랜잭션을 추적할 수 있습니다. 이 것은 트랜잭션을 실제로 블록에 적는 채굴자에게도 필수적이지만, unconfirmed 트랜잭션을 관리하고자하는 노드 \(SPV 클라이언트에게 unconfirmed 트랜잭션 정보를 전달해주는 노드 같은\)에게도 유용합니다.
+
+Uncomfirmed 트랜잭션은 Bitcoin에서 영구적인 지위를 갖지 않습니다. 따라서 Bitcoin Core에서도 이들은 Memory pool 혹은 mempool이라고 불리는 비영구 저장장치에 저장합니다. 노드가 종료되면 wallet에 저장되어 있는 트랜잭션을 제외하고 memory pool의 모든 트랜잭션은 없어집니다\(비영구적이라는 말은 전원이 차단되면 데이터가 유실된다는 뜻입니다\). 이는 unconfirmed transaction은 네트워크의 피어들이 재시작되고, memory 공간을 만들기위해 몇몇 트랜잭션을 삭제하는 작업을 하면서 서서히 없어지는 것을 의미합니다.
+
+채굴되어 블록에 기록되었던 트랜잭션이라도 이 블록이 stale block으로 바뀌면 다시 메모리 풀로 돌아옵니다. 대체 블록이 생성되면 다시 메모리 풀에서 삭제되어 블록에 기록됩니다. 
+
+SPV 클라이언트는 메모리 풀이 존재하지않습니다. 그들은 블록에 포함되지 않은 트랜잭션을 스스로 검증할 수 없으며 그저 UTXO를 소모하는 역할을 합니다.
+
+## Misbehaving Nodes
+
+잘못된 정보를 네트워크에 흘려서 up bandwith나 컴퓨팅 리소스를 소모하게하는 노드들은 banscore를 받습니다. banscore가 일정 이상 되면 bantime 만큼의 시간을 네트워크에서 쫒겨납니다. 이 bantime은 보통 24시간으로 설정되어 있습니다. 
 
 
 
-
- 
-
-
-
-Last updated: May 16, 2021
+Last updated: May 30, 2021
 
