@@ -12,7 +12,7 @@ description: What is Byzantine Generals Problem?
 
 ## 레슬리 램포트와 비잔티움 장군 문제
 
-레슬리 램포트는 분산 시스템의 아버지라고 불리는 컴퓨터 공학자이다. 램포트는 분산 시스템에 대한 전반적인 연구를 진행했다. 분산 시계, 팩소스 알고리즘, 전자서명 등의 논문을 발표했다. 그 외에도 2013년에 튜링상을 수상했고, LaTeX\(레이\)을 만든 업적이 있다.
+레슬리 램포트는 분산 시스템의 아버지라고 불리는 컴퓨터 공학자이다. 램포트는 분산 시스템에 대한 전반적인 연구를 진행했다. 분산 시계, 팩소스 알고리즘, 전자서명 등의 논문을 발표했다. 그 외에도 2013년에 튜링상을 수상했고, LaTeX\(레이텍\)을 만든 업적이 있다.
 
 그 중 한 논문\([http://people.cs.uchicago.edu/~shanlu/teaching/33100\_wi15/papers/byz.pdf](http://people.cs.uchicago.edu/~shanlu/teaching/33100_wi15/papers/byz.pdf)\)은 비잔티움 장군 문제에 대하여 다룬다.
 
