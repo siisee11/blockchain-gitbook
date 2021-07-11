@@ -23,6 +23,7 @@
 * [Signature & Verification](bitcoin/signature-and-verification.md)
 * [Merkle Tree](bitcoin/merkle-tree.md)
 * [Bitcoin Network](bitcoin/bitcoin-network.md)
+* [Consensus Rule Changes](bitcoin/consensus-rule-changes.md)
 
 ## Ethereum
 
