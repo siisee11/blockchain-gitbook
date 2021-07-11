@@ -24,6 +24,7 @@
 * [Merkle Tree](bitcoin/merkle-tree.md)
 * [Bitcoin Network](bitcoin/bitcoin-network.md)
 * [Consensus Rule Changes](bitcoin/consensus-rule-changes.md)
+* [Contracts](bitcoin/contracts.md)
 
 ## Ethereum
 
